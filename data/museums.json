@@ -1,0 +1,148 @@
+{
+  "entries": [
+    {
+      "title": "The MET Fifth Ave",
+      "url": "https://www.metmuseum.org/",
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
+      "image": "img/met.webp",
+      "imageAlt": "Image of marbelled interior at the MET Museum.",
+      "imageCredit": "Alex Moskal",
+      "imageCreditUrl": "https://maps.google.com/maps/contrib/110394467847650748547",
+      "description": "Pretty much free entry if you live in New York and have proof of address! The MET is everyone's must-go. Even though I've been, I've really not. I've only visited one small section, I think. The section I want to visit the most is probably the Costume Institute, and the Arms and Armor? Please ask me out and go life drawing here with me! Side note, the gift shop is delightful too."
+    },
+    {
+      "title": "Whitney Museum",
+      "url": "https://www.whitney.org",
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
+      "image": "img/whitney.jpeg",
+      "imageAlt": "Image of the Whitney Museum.",
+      "imageCredit": "NYC Tourism",
+      "imageCreditUrl": "https://www.nyctourism.com/museums-galleries/whitney-museum-of-american-art/",
+      "description": "Free entry if you present your Pratt student ID! Might be one of my personal favourite museums. It's somewhat small compared to some of the others on this list, but the exhibitions are always well curated and it's never too busy. I love the view outside the museum, and walking along the exterior staircase. So many happy memories made here!"
+    },
+    {
+      "title": "American Museum of Natural History",
+      "url": "https://www.amnh.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/americanmuseumofnaturalhistory.jpg",
+      "imageAlt": "Image of the Gilder Center at the American Museum of Natural History, where there are seamless, arching walls.",
+      "imageCredit": "@nyclovesnyc/Instagram",
+      "imageCreditUrl": "https://www.instagram.com/p/DGQXks5RkSq/",
+      "description": "Personally just want to visit the Gilder Center and look at the architecture once more. I think this would be a fun date idea, but since I've been to a few other natural history museums in the world, this museum isn't the highest on my priority list."
+    },
+    {
+      "title": "9/11 Museum",
+      "url": "https://www.911memorial.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/911.jpg",
+      "imageAlt": "Image of the 9/11 memorial.",
+      "imageCredit": "Eder Dade",
+      "imageCreditUrl": "https://secretnyc.co/9-11-memorial-and-museum-nyc/",
+      "description": "I was born in 2001 - much too young to actually know and understand the consequences that came from this tragedy. I want to visit so I can learn more about the history and what happened, and to respect the people who passed on this day."
+    },
+    {
+      "title": "Cooper Hewitt",
+      "url": "https://www.cooperhewitt.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/cooperhewitt.jpg",
+      "imageAlt": "Image of the Cooper Hewitt, with grand staircases and interactive display tables.",
+      "imageCredit": "Max Touhey",
+      "imageCreditUrl": "https://ny.curbed.com/2014/12/12/10012386/tour-the-cooper-hewitt-now-open-after-a-91m-overhaul",
+      "description": "Free entry if you present your Pratt student ID! The only museum in the US dedicated to historical and contemporary design. Unfortunately, it's closed at the time of me writing. I think this would be a great place to learn what good design (as opposed to art) looks like, and how I might learn from what I see!"
+    },
+    {
+      "title": "Guggenheim",
+      "url": "https://www.guggenheim.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/guggenheim.webp",
+      "imageAlt": "Image of the Guggenheim museum, a curved building with a view of all floors.",
+      "imageCredit": "Julia Ohmann",
+      "imageCreditUrl": "https://maps.google.com/maps/contrib/102035186089423479823",
+      "description": "Free entry if you present your Pratt student ID! A UNESCO World Heritage site where the building itself feels like part of the exhibition. The contemporary and abstract pieces are far from my own style, which makes exploring how each artist describes their process especially fascinating!"
+    },
+    {
+      "title": "Museum of Arts and Design",
+      "url": "https://madmuseum.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/madmuseum.jpg",
+      "imageAlt": "Image of a few design objects - like plates and glassware - sold at the Museum of Arts and Design.",
+      "imageCredit": "MAD Museum",
+      "imageCreditUrl": "https://madmuseum.org/visit",
+      "description": "Modern museum filled with art, craft, and design. I'd love to explore the work of living artists here - and the gift shop is probably amazing if it features the same makers from the exhibitions!"
+    },
+    {
+      "title": "The Frick",
+      "url": "https://www.frick.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/frick.jpg",
+      "imageAlt": "Image of a greenhouse interior at the Frick.",
+      "imageCredit": "CVB",
+      "imageCreditUrl": "https://en.wikipedia.org/wiki/Frick_Collection#/media/File:Frick_Collection_New_York_cour.jpg",
+      "description": "Known for its Renaissance and Old Master works, The Frick Collection lets you wander through preserved historic rooms. There's also a fountain room in this museum that reminds me of a space I designed in my Animal Crossing town, and I'd love to see it in person."
+    },
+    {
+      "title": "Mercer Labs",
+      "url": "https://www.mercerlabs.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/mercer.jpg",
+      "imageAlt": "A scene from the Dragon Room at Mercer Labs, in which more than 500,000 tiny LED lights create 'volumetric lighting.'",
+      "imageCredit": "Hiroko Masuike/The New York Times",
+      "imageCreditUrl": "https://www.nytimes.com/2024/03/08/arts/design/mercer-labs-roy-nachum-braille.html",
+      "description": "A museum blending art and technology — lots of screens, light installations, and immersive rooms. At the time of writing, they have a <a href=\"https://tickets.mercerlabs.com/event/one-piece-x-mercer-labs-0c358n\">One Piece exhibition</a>. The whole vibe reminds me a bit of <a href=\"https://www.teamlab.art/\">teamLAB</a> from Japan. I heard it's a bit pricey, but would be an interesting date spot!"
+    },
+    {
+      "title": "Noguchi Museum",
+      "url": "https://www.noguchi.org/museum/exhibitions/current/",
+      "status": "loved",
+      "tags": ["queens", "loved"],
+      "image": "img/noguchi.jpg",
+      "imageAlt": "Image of an installation inside the Noguchi Museum with minimal sculptures.",
+      "imageCredit": "Noguchi",
+      "imageCreditUrl": "https://www.noguchi.org/",
+      "description": "A beautifully quiet museum where nature and geometry meet. Noguchi designed the iconic paper lamps we all love (and probably have a dupe for), and the garden makes the whole space feel like a breath of fresh air. Thanks to my friend Cat for the perfect recommendation!"
+    },
+    {
+      "title": "The MET Cloisters",
+      "url": "https://www.metmuseum.org/plan-your-visit/met-cloisters",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/cloisters.webp",
+      "imageAlt": "The Cloisters, New York, part of the Metropolitan Museum of Art.",
+      "imageCredit": "Will Pryce for Country Life Magazine",
+      "imageCreditUrl": "https://www.countrylife.co.uk/architecture/the-medieval-cloisters-that-ended-up-in-manhattan-257275",
+      "description": "Pretty much free entry if you live in New York and have proof of address! My roommates went to take photos in the garden, and I thought they flew to Europe. They specialize in medieval art and sacred architecture, and it feels like stepping into history. Definitely a place I'd love to bring my family."
+    },
+    {
+      "title": "Museum at Eldridge St.",
+      "url": "https://www.eldridgestreet.org/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/eldridgest.jpg",
+      "imageAlt": "Image of the Museum at Eldridge St., a historic restored synagogue.",
+      "imageCredit": "@museumateldridgestreet/Instagram",
+      "imageCreditUrl": "https://www.instagram.com/p/DGjMm9eyMjd/s",
+      "description": "That stunning blue glass window looks almost unreal - like something out of a dream. I'd love to visit and learn more about Jewish immigrant history in New York, and how this synagogue became such an important part of that story!"
+    },
+    {
+      "title": "MOMA",
+      "url": "https://www.moma.org/",
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
+      "image": "img/moma.jpg",
+      "imageAlt": "Image of a children sitting in front of a painting at MOMA.",
+      "imageCredit": "New York Welcome",
+      "imageCreditUrl": "https://www.newyorkwelcome.net/tours/attractions-tickets/moma-museum-admission.htm",
+      "description": "I saw their <a href=\"https://www.moma.org/calendar/exhibitions/5756\">exhibition on the turning points of design</a>, and I loved how well curated it was! MoMA is large enough to feel like a real adventure while still being manageable in one visit - a rare sweet spot for a museum. The MOMA gift store is also such a fun place to go and buy gifts!"
+    }
+  ]
+}
+

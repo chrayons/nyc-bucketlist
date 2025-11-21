@@ -1,0 +1,115 @@
+{
+  "entries": [
+    {
+      "name": "Poet's House",
+      "url": "https://poetshouse.org/",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "10 River Ter., New York, NY 10282",
+      "locationUrl": "https://maps.app.goo.gl/38mSZPjE1tqJpn6K7",
+      "hours": "Tue-Fri: 11:00a - 7:00p <br> Sat: 11:00a - 6:00p",
+      "wifi": "Yes",
+      "type": "Public library"
+    },
+    {
+      "name": "Swiss Institute",
+      "url": "https://www.swissinstitute.net/",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "38 St Marks Pl, New York, NY 10003",
+      "locationUrl": "https://maps.app.goo.gl/CezAHHEMJR2i5kDQ6",
+      "hours": "Wed-Fri: 2:00p - 8:00p <br> Sat: 12:00p - 8:00p <br> Sun: 12:00p - 6:00p",
+      "wifi": "Yes",
+      "type": "Contemporary art space & reading room"
+    },
+    {
+      "name": "Morgan Library",
+      "url": "https://www.themorgan.org",
+      "status": "to-try",
+      "borough": "Manhattan",
+      "location": "225 Madison Ave, New York, NY 10016",
+      "locationUrl": "https://maps.app.goo.gl/Ygb2EtU19tABSKQ56",
+      "hours": "Sat-Thur: 10:30a - 5:00p <br> Fri: 10:30a - 8:00p",
+      "wifi": "Yes",
+      "type": "Public library"
+    },
+    {
+      "name": "Pratt Manhattan",
+      "url": "https://www.pratt.edu/information/about-the-school-of-information/location-and-facilities/",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "144 W 14th St, New York, NY 10011",
+      "locationUrl": "https://maps.app.goo.gl/mTqNhmqbhoAe9SiS7",
+      "hours": "Mon-Fri 7:30a - 1:00p <br> Sat-Sun: 8:00a - 11:00p",
+      "wifi": "Yes",
+      "type": "School (Pratt students only)"
+    },
+    {
+      "name": "canteenM",
+      "url": "https://canteenm.restaurants-world.com/",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "189 Bowery #2F, New York, NY 10002",
+      "locationUrl": "https://maps.app.goo.gl/uNW5WtpTo6cpsNt39",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Bar inside CitizenM hotel"
+    },
+    {
+      "name": "Public Hotel",
+      "url": "https://publichotels.com",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "215 Chrystie St, New York, NY 10002",
+      "locationUrl": "https://maps.app.goo.gl/kbheFE7tNPUHWEHN8",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Hotel lobby"
+    },
+    {
+      "name": "The High Line Hotel",
+      "url": "https://thehighlinehotel.com/",
+      "status": "to-try",
+      "borough": "Manhattan",
+      "location": "180 10th Ave, New York, NY 10011",
+      "locationUrl": "https://maps.app.goo.gl/rYyBh6ZmMDxXqZ7q7",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Hotel lobby"
+    },
+    {
+      "name": "Arlo Soho",
+      "url": "https://arlohotels.com/soho/",
+      "status": "to-try",
+      "borough": "Manhattan",
+      "location": "231 Hudson St, New York, NY 10013",
+      "locationUrl": "https://maps.app.goo.gl/9LJ6pkNFCpYaScTm7",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Hotel lobby and library"
+    },
+    {
+      "name": "The Marlton Hotel",
+      "url": "https://marltonhotel.com/",
+      "status": "to-try",
+      "borough": "Manhattan",
+      "location": "5 W 8th St, New York, NY 10011",
+      "locationUrl": "https://maps.app.goo.gl/Ndann1nLdWhtRszR8",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Hotel lobby (might need to get a coffee)"
+    },
+    {
+      "name": "Ace Hotel",
+      "url": "https://acehotel.com/new-york/",
+      "status": "loved",
+      "borough": "Manhattan",
+      "location": "20 W 29th St, New York, NY 10001",
+      "locationUrl": "https://maps.app.goo.gl/kkTaHin42ZyVnP7g8",
+      "hours": "Mon-Sun 24h",
+      "wifi": "Yes",
+      "type": "Hotel lobby"
+    }
+  ]
+}
+

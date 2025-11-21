@@ -1,0 +1,214 @@
+{
+  "entries": [
+    {
+      "title": "Casey Rubber Stamps",
+      "url": "https://www.caseyrubberstamps.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/caseyrubberstamp.webp",
+      "imageAlt": "Image of rubber stamps, arranged in rows on a shop display.",
+      "imageCredit": "Luke Martin Pitcher",
+      "imageCreditUrl": "https://maps.google.com/maps/contrib/106383878528561774651",
+      "description": "A bit of a niche shop, where you can give them an image of any stamp you want, and have them make it for you! I feel like it'd be really cute to make a stamp for your personal artwork and just stamp paper, ceramics, etc. everytime you finish something and have it act as your signature."
+    },
+    {
+      "title": "Gold Star Fragrances",
+      "url": "https://www.goldstarfragrances.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/goldstarperfume.webp",
+      "imageAlt": "Image of the exterior window of Gold Star Fragrances.",
+      "imageCredit": "Sabina Chowdhury",
+      "imageCreditUrl": "https://maps.google.com/maps/contrib/110621779020074290962",
+      "description": "Found this recommendation through an <a href=\"instagram.com/reel/DKp74ichThV/?igsh=MWo0d29tY3AzYjlkOQ==\">Instagram reel</a>. Would be good to find some perfumes or scents you like and ask if they have any dupes for it!"
+    },
+    {
+      "title": "Craftsman Ave",
+      "url": "https://www.craftsmanave.com/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/craftsmanave.jpg",
+      "imageAlt": "Image of a copper lamp, made through a Craftsman Ave workshop.",
+      "imageCredit": "Craftsman Ave",
+      "imageCreditUrl": "https://craftsmanave.com/welding-and-metalwork-classes/",
+      "description": "Hosts workshops on knife making, woodworking, welding, leather-working, and stained glass. Each workshop takes about 4 hours, and is beginner-friendly! They have <a href=\"https://craftsmanave.com/date-night-classes/\">date night packages</a> that seem intimate and fun!"
+    },
+    {
+      "title": "High Valley Books",
+      "url": "https://www.highvalleybooks.com/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/highvalleybooks.webp",
+      "imageAlt": "Image of a graphic representing the design of digital records.",
+      "imageCredit": "Scott Rossi/New York Times",
+      "imageCreditUrl": "https://www.nytimes.com/2024/06/12/style/high-valley-books-bill-hall.html",
+      "description": "A high-fashion bookstore inside a guy's apartment. Seems like a fun place to spend a few hours patiently sifting through books for a rare find."
+    },
+    {
+      "title": "Temple Court Ballroom",
+      "url": "https://www.templecourtnyc.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/templecourt.webp",
+      "imageAlt": "Image of a bar with extravagant furnishings.",
+      "imageCredit": "GKV Architects",
+      "imageCreditUrl": "https://www.gkvarchitects.com/temple-court-restaurant-bar",
+      "description": "I first discovered this place from an <a href=\"https://www.instagram.com/reel/DIMG9_fON4L/?igsh=YjRmdGh5N2VidjV0\">Instagram reel</a> where this guy said he's been trying to take his girlfriend to places that are more her vibe (good ambiance, lively but not too lively). So maybe this is a good date spot? There's jazz brunch every week and apparently the food is amazing."
+    },
+    {
+      "title": "Powerhouse Arts Center",
+      "url": "https://powerhousearts.org/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/gowanus.webp",
+      "imageAlt": "Image of a red brick building, previously the abandoned Brooklyn Rapid Transit Powerhouse on the Gowanus Canal.",
+      "imageCredit": "Albert Vecerka/ESTO",
+      "imageCreditUrl": "https://www.uag.nyc/gowanus-batcave-is-transformed-into-powerhouse-arts-center/",
+      "description": "An arts centre that hosts artist shops, classes and workshops, and events. It's located right by the Gowanus Canal - an area with a complicated history, including ongoing environmental cleanup efforts due to past industrial pollution. I'd love to visit as a day trip to explore the creative community there and learn more about the canal's transformation!"
+    },
+    {
+      "title": "Cellar Dog",
+      "url": "https://www.cellardog.net/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/cellardog.webp",
+      "imageAlt": "Image of pool tables in dim lighting.",
+      "imageCredit": "Cellar Dog",
+      "imageCreditUrl": "https://www.cellardog.net/",
+      "description": "Jazz, games (billiards, ping pong, & shuffleboard), and drinks! Would be a fun date night or to go with a big group of people."
+    },
+    {
+      "title": "Flushing Food Crawl",
+      "url": "https://www.seriouseats.com/where-to-eat-chinese-best-restaurants-flushing-queens-chinatown-nyc",
+      "status": "to-try",
+      "tags": ["queens", "to-try"],
+      "image": "img/flushing.webp",
+      "imageAlt": "Image of shaobing.",
+      "imageCredit": "Alex from the Chopping Block",
+      "imageCreditUrl": "https://www.thechoppingblock.com/blog/a-food-tour-of-flushing-queens",
+      "description": "Okay... maybe the food is a little overpriced and not as good as if I just went back to Vancouver/Taiwan. But I think it'd still be a fun time, and the architecture will be a fun sight to see! I heard that there's a tofu pudding / flower shop that's worth stopping by."
+    },
+    {
+      "title": "Jewelry Workshop with Carolina Iwanow",
+      "url": "https://www.nycjewelrylab.com/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/carolinaiwanow.webp",
+      "imageAlt": "Image of different silver jewelry made in Carolina Iwanow's workshop.",
+      "imageCredit": "Carolina Iwanov/NYC Jewelry Lab",
+      "imageCreditUrl": "https://www.nycjewelrylab.com/",
+      "description": "If you bring 2 other friends with you, you can attend a <a href=\"https://www.nycjewelrylab.com/jewelryclasses/p/three-hours-private-jewelry-party\">single-day workshop</a> that's $420 per person. Sounds pricey but at least it includes all the materials (silver, flat back gemstone), and the tools/lesson needed to craft it!"
+    },
+    {
+      "title": "Evento Cooking Class",
+      "url": "https://www.ciaoevento.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/ciaoevento.webp",
+      "imageAlt": "Image of someone making pasta from scratch using dough.",
+      "imageCredit": "Evento",
+      "imageCreditUrl": "https://www.ciaoevento.com/events/handmade-pasta/",
+      "description": "First you make pasta/pizza/whatever, then you have a party. They have private events that you can book with 10 people (probably good for a birthday party) but they also have ticketed events around $100-200 per person."
+    },
+    {
+      "title": "BrownstoneJazz Bedstuy",
+      "url": "https://www.ticketweb.com/venue/brownstonejazz-brooklyn-ny/417015",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/brownstonejazz.jpg",
+      "imageAlt": "Image of handmade lamps.",
+      "imageCredit": "BrownstoneJazz",
+      "imageCreditUrl": "https://www.ticketweb.com/venue/brownstonejazz-brooklyn-ny/417015",
+      "description": "Live jazz in a restored 19th-century Victorian brownstone. The neighbourhood of Bedford-Stuyvesant is also quite known for jazz! There's a Southern fish-fry buffet and open mic sessions as a bonus. Prices here vary, but looks to be around $50 per person."
+    },
+    {
+      "title": "Caffe Reggio",
+      "url": "https://www.caffereggio.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/caffereggio.webp",
+      "imageAlt": "Image of Caffe Reggio at night, with warm lighting on interiors painted green.",
+      "imageCredit": "Barbara Philliips",
+      "imageCreditUrl": "https://maps.google.com/maps/contrib/105874345534951453167",
+      "description": "Apparently the first cafe in the US to serve a Cappuccino. Probably won't even be able to drink it with real milk since I'm lactose-intolerant, but I want to be a tourist and go somewhere historical."
+    },
+    {
+      "title": "Timeout Market Dumbo",
+      "url": "https://www.nyctourism.com/restaurants/time-out-market-new-york/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/timeout.jpeg",
+      "imageAlt": "Image of a bridge in New York in the background and people in the foreground, taken from the Time Out Market terrace.",
+      "imageCredit": "Ali Garber",
+      "imageCreditUrl": "https://www.nyctourism.com/restaurants/time-out-market-new-york/",
+      "description": "Relax by the waterfront! There's food, drink, and cultural events. If you go to the terrace, you can see the Brooklyn and Manhattan Bridges. I think it'd be a fun date, especially if there's something special going on!"
+    },
+    {
+      "title": "Urban Glass Workshop",
+      "url": "https://urbanglass.org/classes/detail/intro-to-sparkly-beads-metals-foils-leaf-and-aventurine",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/urbanglass.jpeg",
+      "imageAlt": "Image of handmade glass beads.",
+      "imageCredit": "Urban Glass",
+      "imageCreditUrl": "https://urbanglass.org/classes/detail/intro-to-sparkly-beads-metals-foils-leaf-and-aventurine",
+      "description": "I would love to make a sparkly bead to add to my bracelets or make an earring from it. It seems like such a fun activity to do with friends, especially if you each make something and then swap beads as a little keepsake. This class in particular is $145."
+    },
+    {
+      "title": "Nusprodukte Lamp Workshop",
+      "url": "https://luma.com/nusproduktlampe?k=c",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/nusprodukt.jpeg",
+      "imageAlt": "Image of handmade lamps.",
+      "imageCredit": "paloma.of.all.trades",
+      "imageCreditUrl": "https://www.instagram.com/p/DNCD_kHyHTq/?img_index=2",
+      "description": "The lamps you can make here are a bit unorthodox! The class is $100-200, including all the materials needed."
+    },
+    {
+      "title": "Brooklyn Glass Ring Workshop",
+      "url": "https://brooklynglass.com/index.php/class/glass-rings-2/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/brooklynglass.jpeg",
+      "imageAlt": "Image of handmade glass rings.",
+      "imageCredit": "Brooklyn Glass",
+      "imageCreditUrl": "https://brooklynglass.com/index.php/class/glass-rings-2/",
+      "description": "A 3-hour glass ring class where you can expect to make around 3 rings! You'll need to book in advance, and the class is around $215. It sounds like such a fun date idea - you can make one for yourself, and exchange the other ones with your friend(s) or partner. I loveee symbolic items like this!"
+    },
+    {
+      "title": "SRC Risograph Workshop",
+      "url": "https://secretrisoclub.com/Workshops",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/secretrisoclub.png",
+      "imageAlt": "Image of a Pokemon Risograph workshop ad.",
+      "imageCredit": "Secret Riso Club",
+      "imageCreditUrl": "https://secretrisoclub.com/Pokemon-Booster-Workshop",
+      "description": "This collaborative artist-run space and creative studio has independent publishing, art book production, and more! They usually have risograph classes a few times a month and we'd have to look at the website to see what kind of workshops are happening. They had a Pikachu riso print workshop awhile ago that I thought was quite cute. Classes range from around $60-$300 depending on the subject."
+    },
+    {
+      "title": "Maybe Happy Ending Broadway Show",
+      "url": "https://www.maybehappyending.com/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/maybehappyending.webp",
+      "imageAlt": "Image of Maybe Happy Ending cast.",
+      "imageCredit": "Matthew Murphy and Evan Zimmerman",
+      "imageCreditUrl": "https://www.newyorktheatreguide.com/theatre-news/news/everything-you-need-to-know-about-maybe-happy-ending-on-broadway",
+      "description": "Basically adding here so I can remember to watch with my boyfriend. He really wanted to watch this one, and I love Broadway! Tickets are usually around a hundred-or-so. If you go to the box office the day of, you can ask for rush tickets but no guarantee the show has any tickets left!"
+    },
+    {
+      "title": "Lucky Risograph Workshop",
+      "url": "https://luckyrisograph.press/workshops",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/luckyrisograph.webp",
+      "imageAlt": "Image of a risograph print with a crab holding a heart saying 'xie xie'.",
+      "imageCredit": "Lucky Risograph",
+      "imageCreditUrl": "https://luckyrisograph.press/workshops",
+      "description": "This is a risograph printing press that works with local and international creators to reinterpret risograph with art books, zines, and projects. I LOVE the colours they have here. I feel like their workshops don't happen often so we should try to catch one ASAP if we can! One class is around $200."
+    }
+  ]
+}
+

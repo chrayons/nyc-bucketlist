@@ -599,6 +599,85 @@ main{
     }
 }
 
+/* Mobile filter spacing adjustments */
+@media (max-width: 768px) {
+    .filters-wrapper {
+        gap: 16px; /* Minimum gap between filter sections on mobile */
+        flex-wrap: wrap; /* Allow wrapping if absolutely necessary */
+    }
+    
+    .filter-section.status-section {
+        flex: 1 1 auto; /* Allow status section to shrink if needed */
+        min-width: 0; /* Allow flex shrinking */
+    }
+    
+    .filter-section.location-section {
+        flex: 0 0 auto; /* Keep borough dropdown from shrinking too much */
+    }
+    
+    .filter-container {
+        gap: 6px; /* Further reduce gap between status buttons on mobile */
+    }
+    
+    .filter-btn {
+        padding: 4px 8px; /* Further reduced padding on mobile */
+        font-size: 14px; /* Slightly smaller font on mobile if needed */
+    }
+    
+    .dropdown-active-filter {
+        min-width: 120px; /* Slightly smaller dropdown box on mobile */
+        padding: 3px 10px; /* Reduced by 1px top/bottom to account for border */
+        font-size: 14px; /* Slightly smaller text */
+    }
+}
+
+/* Extra small mobile devices - use smaller proportional font sizes, keep horizontal layout */
+@media (max-width: 480px) {
+    .filters-wrapper {
+        gap: 12px; /* Minimum gap between filter sections */
+        /* Keep horizontal layout - no stacking */
+    }
+    
+    /* Proportional text size reduction (base 16px → ~87.5% = 14px, buttons ~81% = 13px) */
+    .filter-label {
+        font-size: 14px; /* ~87.5% of 16px - proportionally smaller */
+        line-height: 1.5; /* Maintain same line-height ratio */
+    }
+    
+    .filter-btn {
+        padding: 3px 7px; /* Proportional padding reduction */
+        font-size: 13px; /* ~81% of 16px - slightly smaller than labels */
+        line-height: 1.5; /* Maintain same line-height ratio */
+    }
+    
+    .dropdown-label {
+        font-size: 14px; /* Match filter label size */
+        line-height: 1.5; /* Maintain same line-height ratio */
+    }
+    
+    .dropdown-active-filter {
+        min-width: 100px; /* Slightly smaller dropdown */
+        font-size: 13px; /* Match button font size */
+        padding: 2px 9px; /* Reduced by 1px top/bottom to account for border (3px - 1px = 2px) */
+        line-height: 1.5; /* Maintain same line-height ratio */
+    }
+    
+    .dropdown-option {
+        font-size: 13px; /* Consistent with buttons */
+        padding: 3px 10px; /* Proportional padding */
+        line-height: 1.5; /* Maintain same line-height ratio */
+    }
+    
+    .dropdown-arrow {
+        width: 14px; /* Proportionally smaller arrow (87.5% of 16px) */
+        height: 14px;
+    }
+    
+    .filter-container {
+        gap: 5px; /* Tighter gap between status buttons */
+    }
+}
+
 
 /* ACTIVITIES / MUSEUMS / SIGHTSEEING PAGES */
 
@@ -624,6 +703,7 @@ main{
     justify-content: space-between; /* Space between status (left) and borough (right) */
     align-items: flex-start; /* Top-align filter sections */
     flex-wrap: nowrap;
+    gap: 16px; /* Minimum gap between filter sections */
 }
 
 .filter-section {
@@ -631,6 +711,13 @@ main{
     flex-direction: column;
     gap: 8px;
     flex-shrink: 0;
+    justify-content: flex-start; /* Align content to start */
+}
+
+.filter-section .filter-container,
+.filter-section .custom-dropdown {
+    display: flex;
+    align-items: center; /* Center-align the buttons/box within their container */
 }
 
 .filter-section.status-section {
@@ -669,20 +756,21 @@ main{
     background: var(--white);
     border: 1px solid var(--darkgrey);
     border-radius: 4px;
-    padding: 4px 12px;
+    padding: 3px 10px; /* Reduced by 1px top/bottom to account for border (4px - 1px border = 3px) */
     font-family: var(--font-sans);
     font-weight: 300;
     font-size: 16px;
     color: var(--black);
     text-transform: lowercase;
     text-align: left;
-    min-width: 150px;
+    min-width: 120px; /* Reduced min-width to make box smaller */
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    line-height: 1.5; /* Match filter-btn line height */
 }
 
 .dropdown-active-filter .filter-text {
@@ -792,11 +880,15 @@ main{
     color: var(--darkgrey);
     margin: 0;
     text-transform: uppercase;
+    font-size: 16px; /* Base size for labels */
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: var(--ls-tight);
 }
 
 .filter-container {
     display: flex;
-    gap: 12px;
+    gap: 8px; /* Reduced gap between buttons on mobile */
     flex-wrap: nowrap; /* Keep buttons on one line */
     align-items: center;
 }
@@ -807,7 +899,7 @@ main{
     color: var(--darkgrey); /* Grey text - inactive state */
     border: none;
     border-radius: 4px; /* Slightly rounded rectangle */
-    padding: 4px 12px;
+    padding: 4px 10px; /* Reduced horizontal padding to save space */
     cursor: pointer;
     transition: background-color .2s ease, color .2s ease;
     text-transform: lowercase;
@@ -815,6 +907,8 @@ main{
     box-sizing: border-box;
     min-width: fit-content;
     font-weight: 300; /* Light - inactive state */
+    font-size: 16px; /* Match dropdown font size */
+    line-height: 1.5; /* Match dropdown line-height for consistent height */
 }
 
 .filter-btn:hover,

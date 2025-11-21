@@ -1,0 +1,126 @@
+{
+  "entries": [
+    {
+      "title": "Ellis Island",
+      "url": "https://www.nps.gov/elis/index.htm",
+      "status": "to-try",
+      "tags": ["outskirts", "to-try"],
+      "image": "img/ellisisland.jpg",
+      "imageAlt": "Image of a red brick building in Ellis Island.",
+      "imageCredit": "Sergio Del Rio",
+      "imageCreditUrl": "https://unsplash.com/photos/brown-and-white-concrete-building-under-blue-sky-during-daytime-0EdsfK6jWMA",
+      "description": "Would be such a fun day trip! You take a ferry there (best to book in advance). The Ellis Island National Museum of Immigration shares the stories of immigrants entering the U.S., and you also get a great view of the Statue of Liberty from the grounds."
+    },
+    {
+      "title": "Brooklyn Army Terminal",
+      "url": "https://ohny.org/place/brooklyn-army-terminal-2/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/brooklynarmyterminal.jpg",
+      "imageAlt": "Image of an industrial looking builting with a tall open glass roof.",
+      "imageCredit": "Albert Vecerka",
+      "imageCreditUrl": "https://ohny.org/place/brooklyn-army-terminal-2/",
+      "description": "You can enjoy a historic atrium, visit the waterfront, attend an event, or visit some local businesses. Would be a fun place for a mini photoshoot, and just explore somewhere new for a day!"
+    },
+    {
+      "title": "Brooklyn Botanic Garden",
+      "url": "https://www.bbg.org/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/brooklynbotanicgarden.jpg",
+      "imageAlt": "Image of a greenhouse in Brooklyn Botanic Garden.",
+      "imageCredit": "Julia Newman Photography",
+      "imageCreditUrl": "https://www.brideandblossom.com/blog/bb-venues-we-love-brooklyn-botanic-garden/",
+      "description": "Free for Pratt students with your ID! A peaceful escape with thousands of plant species spread over 52 acres, right beside Prospect Park. Especially beautiful during cherry blossom season."
+    },
+    {
+      "title": "Pier 57",
+      "url": "https://pier57nyc.com/",
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
+      "image": "img/pier57.webp",
+      "imageAlt": "Image of a Pier 57, with many structures seeming to sprout out from the water. There are trees lining these structures.",
+      "imageCredit": "Alexander Rodriguez Soto",
+      "imageCreditUrl": "https://www.google.com/maps/contrib/105849464868115595894",
+      "description": "A lively waterfront destination with a food hall, community events, and rooftop park space. Great for exploring art, culture, and nature. It's also right by the High Line, Little Island, and the Whitney Museum!"
+    },
+    {
+      "title": "Gantry Park LIC",
+      "url": "https://parks.ny.gov/visit/state-parks/gantry-plaza-state-park",
+      "status": "to-try",
+      "tags": ["lic", "to-try"],
+      "image": "img/gantrypark.webp",
+      "imageAlt": "Image of Gantry Park, aerial view. There is water, trees, and a playground area.",
+      "imageCredit": "New York State Parks, Recreation and Historic Preservation",
+      "imageCreditUrl": "https://parks.ny.gov/visit/state-parks/gantry-plaza-state-park",
+      "description": "I hear this is a great spot to catch a sunset of the Manhattan skyline, including landmarks like the Empire State Building and the United Nations. There are lawns, piers, and recreational facilities - perfect for relaxing or joining a casual sports drop-in."
+    },
+    {
+      "title": "Prospect Park",
+      "url": "https://www.prospectpark.org/",
+      "status": "to-try",
+      "tags": ["brooklyn", "to-try"],
+      "image": "img/prospectpark.webp",
+      "imageAlt": "Image of a park, with a winding path, people and dogs, and lots of trees.",
+      "imageCredit": "Elizabeth Jeegin Colley",
+      "imageCreditUrl": "https://elizabethcolley.photoshelter.com/",
+      "description": "You can play sports and touch grass. I love how the website curated a whole <a href=\"https://www.prospectpark.org/visit-the-park/things-to-do/\">list of things to do</a>, including volleyball (my favourite sport!). Seems like a peaceful place to do enjoy a book outside, have a picnic with friends, or stroll with family."
+    },
+    {
+      "title": "Roosevelt Island",
+      "url": "https://www.nyctourism.com/new-york/manhattan/roosevelt-island/",
+      "status": "to-try",
+      "tags": ["manhattan", "to-try"],
+      "image": "img/rooseveltisland.webp",
+      "imageAlt": "Image of Roosevelt Island, with a focus on the lighthouse.",
+      "imageCredit": "50 Preservation League of NYS",
+      "imageCreditUrl": "https://www.preservenys.org/blog/excellence-award-spotlight-roosevelt-island-lighthouse",
+      "description": "A quick day trip with unique views of Manhattan from the aerial tramway! There are parks, walking trails, and the historic lighthouse at the northern tip. NYC Tourism created a <a href=\"https://www.nyctourism.com/articles/a-day-on-roosevelt-island/\">list</a> of things to do. It's not too far from Manhattan, either."
+    },
+    {
+      "title": "Governor's Island",
+      "url": "https://www.govisland.com/",
+      "status": "to-try",
+      "tags": ["outskirts", "to-try"],
+      "image": "img/governorsisland.png",
+      "imageAlt": "Image of a man exploring a park, walking on rocks, with a view of the cityscape and water.",
+      "imageCredit": "Julienne Schaer",
+      "imageCreditUrl": "https://www.govisland.com/blog/governors-island-2022-year-in-review",
+      "description": "A car-free island! This calls for a daytrip - I want to bike around, see monuments, and view public art. They also have a very long slide you can go down, but I'm a little scared of slides. Anywho, to get there, you can hop on a free ferry! The official website has a <a href=\"https://www.govisland.com/things-to-do\">list of things to do</a>."
+    },
+    {
+      "title": "Forest Hill Gardens",
+      "url": "https://www.cityneighborhoods.nyc/forest-hills-gardens",
+      "status": "to-try",
+      "tags": ["queens", "to-try"],
+      "image": "img/foresthillgardens.webp",
+      "imageAlt": "Image of a red house surrounded by greenery and a paving road.",
+      "imageCredit": "Samuel Walters",
+      "imageCreditUrl": "https://www.cityneighborhoods.nyc/forest-hills-gardens",
+      "description": "A picturesque neighbourhood in Queens - it sort of feels like you're walking around in the UK because they have so much Tudor Revival architecture. Great for a leisurely stroll, admiring the gardens and tree-lined streets."
+    },
+    {
+      "title": "New York Botanical Garden",
+      "url": "https://www.nybg.org/",
+      "status": "to-try",
+      "tags": ["the bronx", "to-try"],
+      "image": "img/nybotanicalgarden.webp",
+      "imageAlt": "Image of a greenhouse on a blue-sky day. There are lilypads in the foreground and lots of greenery.",
+      "imageCredit": "Kiana Brayton",
+      "imageCreditUrl": "https://www.google.com/maps/contrib/110893616700953850614",
+      "description": "A massive botanical oasis in the Bronx - the flagship garden of NYC. Features rare and exotic plants, special exhibits, and even a preserved old-growth forest. Worth checking the <a href=\"https://www.nybg.org/whats-on/\">calendar</a> for seasonal events."
+    },
+    {
+      "title": "Riverdale",
+      "url": "https://www.cityneighborhoods.nyc/riverdale",
+      "status": "to-try",
+      "tags": ["the bronx", "to-try"],
+      "image": "img/riverdale.webp",
+      "imageAlt": "Image of two houses, where you can see the river.",
+      "imageCredit": "Daniela Salazon",
+      "imageCreditUrl": "https://www.untappedcities.com/20-must-visit-sites-in-riverdale-bronx-an-untapped-cities-guide/",
+      "description": "The name reminds me of the show <a href=\"https://en.wikipedia.org/wiki/Riverdale_(American_TV_series)\">Riverdale</a> I used to love in high school. Anyway, the real Riverdale is a quiet, residential neighborhood in the Bronx with stunning views of the Hudson River. I'd love to explore the beautiful architecture there - especially the Colonial Revival, Tudor Revival, and Beaux-Arts homes!"
+    }
+  ]
+}
+

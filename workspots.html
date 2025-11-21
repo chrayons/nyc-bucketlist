@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon code referenced from https://css-tricks.com/emoji-as-a-favicon/ -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪣</text></svg>">
+    <script src="js/render.js" defer></script>
     <script src="js/filter.js" defer></script>
+    <script>
+        // Load and render workspots data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAndRender('workspots');
+        });
+    </script>
 </head>
     <body>
     <header>
@@ -101,104 +108,8 @@
                 <tbody>
 
                     <!-- ENTRIES -->
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://poetshouse.org/">Poet’s House</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/38mSZPjE1tqJpn6K7">10 River Ter., New York, NY 10282 </a></td>
-                        <td>Tue-Fri: 11:00a - 7:00p <br> Sat: 11:00a - 6:00p</td>
-                        <td>Yes</td>
-                        <td>Public library</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
 
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://www.swissinstitute.net/">Swiss Institute</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/CezAHHEMJR2i5kDQ6">38 St Marks Pl, New York, NY 10003</a></td>
-                        <td>Wed-Fri: 2:00p - 8:00p <br> Sat: 12:00p - 8:00p <br> Sun: 12:00p - 6:00p</td>
-                        <td>Yes</td>
-                        <td>Contemporary art space & reading room</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
-
-                    <tr data-status="to-try" class="text-body">
-                        <th scope="row"><a href="https://www.themorgan.org">Morgan Library</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/Ygb2EtU19tABSKQ56">225 Madison Ave, New York, NY 10016</a></td>
-                        <td>Sat-Thur: 10:30a - 5:00p <br> Fri: 10:30a - 8:00p</td>
-                        <td>Yes</td>
-                        <td>Public library</td>
-                        <td><span class="status">to-try</span></td>
-                    </tr>
-
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://www.pratt.edu/information/about-the-school-of-information/location-and-facilities/">Pratt Manhattan</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/mTqNhmqbhoAe9SiS7">144 W 14th St, New York, NY 10011</a></td>
-                        <td>Mon-Fri 7:30a - 1:00p <br> Sat-Sun: 8:00a - 11:00p</td>
-                        <td>Yes</td>
-                        <td>School (Pratt students only)</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
-
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://canteenm.restaurants-world.com/">canteenM</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/uNW5WtpTo6cpsNt39">189 Bowery #2F, New York, NY 10002</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Bar inside CitizenM hotel</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
-
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://publichotels.com">Public Hotel</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/kbheFE7tNPUHWEHN8">215 Chrystie St, New York, NY 10002</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Hotel lobby</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
-
-                    <tr data-status="to-try" class="text-body">
-                        <th scope="row"><a href="https://thehighlinehotel.com/">The High Line Hotel</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/rYyBh6ZmMDxXqZ7q7">180 10th Ave, New York, NY 10011</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Hotel lobby</td>
-                        <td><span class="status">to-try</span></td>
-
-                    <tr data-status="to-try" class="text-body">
-                        <th scope="row"><a href="https://arlohotels.com/soho/">Arlo Soho</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/9LJ6pkNFCpYaScTm7">231 Hudson St, New York, NY 10013</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Hotel lobby and library</td>
-                        <td><span class="status">to-try</span></td>
-                    </tr>
-
-                    <tr data-status="to-try" class="text-body">
-                        <th scope="row"><a href="https://marltonhotel.com/">The Marlton Hotel</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/Ndann1nLdWhtRszR8">5 W 8th St, New York, NY 10011</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Hotel lobby (might need to get a coffee)</td>
-                        <td><span class="status">to-try</span></td>
-                    </tr>
-
-                    <tr data-status="loved" class="text-body">
-                        <th scope="row"><a href="https://acehotel.com/new-york/">Ace Hotel</a></th>
-                        <td>Manhattan</td>
-                        <td><a href="https://maps.app.goo.gl/kkTaHin42ZyVnP7g8">20 W 29th St, New York, NY 10001</a></td>
-                        <td>Mon-Sun 24h</td>
-                        <td>Yes</td>
-                        <td>Hotel lobby</td>
-                        <td><span class="status">loved</span></td>
-                    </tr>
+                    <!-- Table rows will be rendered from data/workspots.json by render.js -->
                 </tbody>
             </table>
         </main>

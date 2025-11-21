@@ -1,49 +1,58 @@
 // Filtering functionality
 // Filters cards and table rows based on data-status and data-location attributes
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Extract location from tags and add data-location attribute to cards
+// Function to initialize filters (can be called multiple times)
+function initializeFilters() {
+    // Re-query for cards and rows (they may be loaded dynamically)
     const allCards = document.querySelectorAll('.card');
+    const allTableRows = document.querySelectorAll('tr[data-status]');
+    
+    // Extract location from tags and add data-location attribute to cards
     allCards.forEach(card => {
-        const tags = card.querySelectorAll('.card__tags .tag');
-        tags.forEach(tag => {
-            const tagText = tag.textContent.trim().toLowerCase();
-            // Check if it's a location tag (not status tags like to-try or loved)
-            if (tagText !== 'to-try' && 
-                tagText !== 'loved' && 
-                tagText !== 'to-do') {
-                // Use as location
-                if (tagText) {
-                    card.setAttribute('data-location', tagText);
+        // Only process if location not already set
+        if (!card.hasAttribute('data-location')) {
+            const tags = card.querySelectorAll('.card__tags .tag');
+            tags.forEach(tag => {
+                const tagText = tag.textContent.trim().toLowerCase();
+                // Check if it's a location tag (not status tags like to-try or loved)
+                if (tagText !== 'to-try' && 
+                    tagText !== 'loved' && 
+                    tagText !== 'to-do') {
+                    // Use as location
+                    if (tagText) {
+                        card.setAttribute('data-location', tagText);
+                    }
                 }
-            }
-        });
+            });
+        }
     });
     
     // Extract location from borough column and add data-location attribute to table rows
-    const allTableRows = document.querySelectorAll('tr[data-status]');
     allTableRows.forEach(row => {
-        // Find the borough column (second td after the th scope="row")
-        const cells = row.querySelectorAll('td');
-        // Borough is the first td (index 0) since name is th[scope="row"]
-        const boroughCell = cells[0];
-        if (boroughCell) {
-            const boroughText = boroughCell.textContent.trim().toLowerCase();
-            // Normalize borough names to match filter values
-            let location = boroughText;
-            // Map common borough names to location values
-            if (boroughText === 'manhattan') {
-                location = 'manhattan';
-            } else if (boroughText === 'brooklyn') {
-                location = 'brooklyn';
-            } else if (boroughText === 'queens') {
-                location = 'queens';
-            } else if (boroughText === 'the bronx' || boroughText === 'bronx') {
-                location = 'the bronx';
-            }
-            
-            if (location) {
-                row.setAttribute('data-location', location);
+        // Only process if location not already set
+        if (!row.hasAttribute('data-location')) {
+            // Find the borough column (second td after the th scope="row")
+            const cells = row.querySelectorAll('td');
+            // Borough is the first td (index 0) since name is th[scope="row"]
+            const boroughCell = cells[0];
+            if (boroughCell) {
+                const boroughText = boroughCell.textContent.trim().toLowerCase();
+                // Normalize borough names to match filter values
+                let location = boroughText;
+                // Map common borough names to location values
+                if (boroughText === 'manhattan') {
+                    location = 'manhattan';
+                } else if (boroughText === 'brooklyn') {
+                    location = 'brooklyn';
+                } else if (boroughText === 'queens') {
+                    location = 'queens';
+                } else if (boroughText === 'the bronx' || boroughText === 'bronx') {
+                    location = 'the bronx';
+                }
+                
+                if (location) {
+                    row.setAttribute('data-location', location);
+                }
             }
         }
     });
@@ -129,14 +138,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Filter function
-    function filterItems() {
+    // Filter function (re-queries for cards/rows each time to handle dynamic content)
+    // Make it globally accessible so it can be called after dynamic content loads
+    window.filterItems = function filterItems() {
+        // Re-query for cards and rows (they may be loaded dynamically)
+        const cardsToFilter = document.querySelectorAll('.card');
+        const rowsToFilter = document.querySelectorAll('tr[data-status]');
+        
+        // Re-query for filter buttons (they should already exist, but just to be safe)
+        const statusButtonsQuery = document.querySelectorAll('.filter-btn-status');
+        const locationSelectsQuery = document.querySelectorAll('.location-select');
+        
         // Get active status filter (mutually exclusive)
-        const activeStatusButton = Array.from(statusButtons).find(button => button.classList.contains('active'));
+        const activeStatusButton = Array.from(statusButtonsQuery).find(button => button.classList.contains('active'));
         const activeStatusFilter = activeStatusButton ? activeStatusButton.dataset.filter : 'all';
         
         // Get active location filter from hidden select (mutually exclusive - single select)
-        const activeLocationSelect = locationSelects.length > 0 ? locationSelects[0] : null;
+        const activeLocationSelect = locationSelectsQuery.length > 0 ? locationSelectsQuery[0] : null;
         const activeLocationFilter = activeLocationSelect ? activeLocationSelect.value : 'all';
         
         // If "all" is selected in locations, treat as no filter
@@ -146,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let visibleRowCount = 0;
         
         // Filter cards
-        allCards.forEach(card => {
+        cardsToFilter.forEach(card => {
             const cardStatus = card.getAttribute('data-status');
             const cardLocation = card.getAttribute('data-location');
             
@@ -174,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Filter table rows
-        allTableRows.forEach(row => {
+        rowsToFilter.forEach(row => {
             const rowStatus = row.getAttribute('data-status');
             const rowLocation = row.getAttribute('data-location');
             
@@ -285,6 +303,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Initially show all items
-    filterItems();
+    // Initially show all items (only if cards/rows exist)
+    const initialCards = document.querySelectorAll('.card');
+    const initialRows = document.querySelectorAll('tr[data-status]');
+    if (initialCards.length > 0 || initialRows.length > 0) {
+        filterItems();
+    }
+}
+
+// Initialize filters on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initializeFilters);
+
+// Also initialize filters when entries are rendered dynamically
+document.addEventListener('entriesRendered', function() {
+    initializeFilters();
+    // Run filter after a brief delay to ensure everything is ready
+    setTimeout(() => {
+        // Re-query for status buttons and trigger filter
+        const statusButtons = document.querySelectorAll('.filter-btn-status');
+        const locationSelects = document.querySelectorAll('.location-select');
+        const activeStatusButton = Array.from(statusButtons).find(button => button.classList.contains('active'));
+        
+        if (activeStatusButton) {
+            activeStatusButton.click();
+        } else if (statusButtons.length > 0) {
+            const allButton = Array.from(statusButtons).find(btn => btn.dataset.filter === 'all');
+            if (allButton) {
+                allButton.classList.add('active');
+                // Get filterItems from scope - we need to call it directly
+                const cardsToFilter = document.querySelectorAll('.card');
+                const rowsToFilter = document.querySelectorAll('tr[data-status]');
+                if (cardsToFilter.length > 0 || rowsToFilter.length > 0) {
+                    // Trigger filter by dispatching a custom event or calling filterItems
+                    // For now, just call initializeFilters which will set up everything
+                    initializeFilters();
+                    // Then manually trigger the filter
+                    const activeBtn = Array.from(statusButtons).find(btn => btn.classList.contains('active'));
+                    if (activeBtn) activeBtn.click();
+                }
+            }
+        }
+    }, 100);
 });
