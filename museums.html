@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <title>Museums</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Preload critical fonts to prevent flashing -->
+    <link rel="preload" href="/fonts/OpenSauceOne-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/BellavoirDelight.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <!-- Favicon code referenced from https://css-tricks.com/emoji-as-a-favicon/ -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪣</text></svg>">
+    <script src="js/filter.js" defer></script>
 </head>
 <body>
     <header>
@@ -29,7 +35,54 @@
 
   <main class="activities__cards">
       <h1 class="page-title text-header">museums</h1>
+      <!-- FILTER BUTTONS -->
+      <div class="filters-wrapper">
+          <div class="filter-section status-section">
+              <label class="filter-label text-small-header">STATUS</label>
+              <div class="filter-container">
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="all" data-type="status">all</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="to-try" data-type="status">to-try</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="loved" data-type="status">loved</button>
+              </div>
+          </div>
+          <div class="filter-section location-section">
+              <div class="custom-dropdown">
+                  <button class="dropdown-trigger" id="borough-trigger">
+                      <span class="dropdown-label">BOROUGH</span>
+                  </button>
+                  <div class="dropdown-active-filter" id="borough-active-filter">
+                      <span class="filter-text">all</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-arrow">
+                          <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                  </div>
+                  <div class="dropdown-menu" id="borough-menu">
+                      <button class="dropdown-option" data-value="all">all</button>
+                      <button class="dropdown-option" data-value="manhattan">manhattan</button>
+                      <button class="dropdown-option" data-value="brooklyn">brooklyn</button>
+                      <button class="dropdown-option" data-value="queens">queens</button>
+                      <button class="dropdown-option" data-value="lic">lic</button>
+                      <button class="dropdown-option" data-value="greenpoint">greenpoint</button>
+                      <button class="dropdown-option" data-value="outskirts">outskirts</button>
+                      <button class="dropdown-option" data-value="the bronx">the bronx</button>
+                  </div>
+                  <select class="location-select hidden" id="location-select">
+                      <option value="all">all</option>
+                      <option value="manhattan">manhattan</option>
+                      <option value="brooklyn">brooklyn</option>
+                      <option value="queens">queens</option>
+                      <option value="lic">lic</option>
+                      <option value="greenpoint">greenpoint</option>
+                      <option value="outskirts">outskirts</option>
+                      <option value="the bronx">the bronx</option>
+                  </select>
+              </div>
+          </div>
+      </div>
       <!-- CARD LIST/COLUMNS -->
+      <div class="empty-state-message">
+          <p class="text-empty-state">oops, sorry i have no recs.<br>send me some?</p>
+      </div>
       <section class="cards" aria-label="Museums List">
           <!-- Cards loosely adapted from this tutorial:
                 https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Card
@@ -39,8 +92,8 @@
               <!-- card info -->
               <div class="card__surface">
                   <div class="card__tags">
-                      <span class="tag text-tag">#manhattan</span>
-                      <span class="tag text-tag">#loved</span>
+                      <span class="tag text-tag">manhattan</span>
+                      <span class="tag text-tag">loved</span>
                   </div>
                   <h2 class="card__title text-title">
                       <a href="https://www.metmuseum.org/">
@@ -62,8 +115,8 @@
           <article class="card" data-status="loved">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#loved</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">loved</span>
               </div>
                   <h2 class="card__title text-title">
                       <a href="https://www.whitney.org"> Whitney Museum </a></h2>
@@ -83,8 +136,8 @@
           <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
                   <h2 class="card__title text-title" > <a href="https://www.amnh.org/">
                       American Museum of Natural History</a></h2>
@@ -104,8 +157,8 @@
           <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title"><a href="https://www.911memorial.org/">
                   9/11 Museum</a></h2>
@@ -125,8 +178,8 @@
           <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title"><a href="https://www.cooperhewitt.org/">
                   Cooper Hewitt</a></h2>
@@ -148,8 +201,8 @@
           <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.guggenheim.org/">Guggenheim</a></h2>
@@ -173,8 +226,8 @@
         <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://madmuseum.org/">Museum of Arts and Design</a></h2>
@@ -196,8 +249,8 @@
         <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.frick.org/">The Frick</a></h2>
@@ -219,8 +272,8 @@
            <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.mercerlabs.com/">Mercer Labs</a></h2>
@@ -242,8 +295,8 @@
             <article class="card" data-status="loved">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#queens</span>
-                  <span class="tag text-tag">#loved</span>
+                  <span class="tag text-tag">queens</span>
+                  <span class="tag text-tag">loved</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.noguchi.org/museum/exhibitions/current/">Noguchi Museum</a></h2>
@@ -265,8 +318,8 @@
         <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.metmuseum.org/plan-your-visit/met-cloisters">The MET Cloisters</a></h2>
@@ -289,8 +342,8 @@
           <article class="card" data-status="to-try">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#to-try</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.eldridgestreet.org/">Museum at Eldridge St.</a></h2>
@@ -312,8 +365,8 @@
            <article class="card" data-status="loved">
               <div class="card__surface">
               <div class="card__tags">
-                  <span class="tag text-tag">#manhattan</span>
-                  <span class="tag text-tag">#loved</span>
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">loved</span>
               </div>
               <h2 class="card__title text-title">
                   <a href="https://www.moma.org/">MOMA</a></h2>
