@@ -71,29 +71,55 @@ function renderTableRow(entry) {
 }
 
 // Render all cards from JSON data
-function renderCards(containerSelector, data) {
+async function renderCards(containerSelector, data) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
     
     if (!data || !data.entries || data.entries.length === 0) {
+        container.classList.remove('loading');
+        container.classList.add('loaded');
         return;
     }
+    
+    // Mark as loading
+    container.classList.add('loading');
+    container.classList.remove('loaded');
     
     const cardsHtml = data.entries.map(entry => renderCard(entry)).join('\n');
     container.innerHTML = cardsHtml;
+    
+    // Wait for all images to load before showing content
+    await waitForImages(container);
+    
+    // Mark as loaded and show content
+    container.classList.remove('loading');
+    container.classList.add('loaded');
 }
 
 // Render all table rows from JSON data
-function renderTableRows(containerSelector, data) {
+async function renderTableRows(containerSelector, data) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
     
     if (!data || !data.entries || data.entries.length === 0) {
+        container.classList.remove('loading');
+        container.classList.add('loaded');
         return;
     }
     
+    // Mark as loading
+    container.classList.add('loading');
+    container.classList.remove('loaded');
+    
     const rowsHtml = data.entries.map(entry => renderTableRow(entry)).join('\n');
     container.innerHTML = rowsHtml;
+    
+    // Wait for any images (if any) to load before showing content
+    await waitForImages(container);
+    
+    // Mark as loaded and show content
+    container.classList.remove('loading');
+    container.classList.add('loaded');
 }
 
 // Helper function to escape HTML
@@ -102,6 +128,29 @@ function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+}
+
+// Wait for all images in a container to load
+function waitForImages(container) {
+    const images = container.querySelectorAll('img');
+    if (images.length === 0) {
+        return Promise.resolve();
+    }
+    
+    // Create promises for each image
+    const imagePromises = Array.from(images).map(img => {
+        if (img.complete) {
+            return Promise.resolve();
+        }
+        return new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = resolve; // Resolve even on error to prevent hanging
+            // Timeout after 5 seconds to prevent infinite waiting
+            setTimeout(resolve, 5000);
+        });
+    });
+    
+    return Promise.all(imagePromises);
 }
 
 // Extract location attributes from cards and table rows (needed for filtering)
@@ -174,16 +223,64 @@ async function loadAndRender(pageType) {
             return;
     }
     
+    // Show loading spinner
+    const container = document.querySelector(containerSelector);
+    let spinner = null;
+    
+    if (container) {
+        // For tables, look for spinner relative to the table
+        // For cards, look relative to the container
+        const searchParent = containerSelector === '.work-table tbody' 
+            ? container.closest('.work-table')?.parentElement 
+            : container.parentElement;
+        
+        spinner = searchParent?.querySelector('.loading-spinner');
+        
+        if (!spinner && searchParent) {
+            // Create spinner if it doesn't exist
+            spinner = document.createElement('div');
+            spinner.className = 'loading-spinner';
+            
+            // For tables, place after the table
+            // For cards, place before the container
+            if (containerSelector === '.work-table tbody') {
+                const table = container.closest('.work-table');
+                if (table && table.parentElement) {
+                    table.parentElement.insertBefore(spinner, table.nextSibling);
+                }
+            } else {
+                searchParent.insertBefore(spinner, container);
+            }
+        }
+    }
+    
+    if (spinner) {
+        spinner.classList.remove('hidden');
+    }
+    
+    // Mark container as loading initially
+    if (container) {
+        container.classList.add('loading');
+        container.classList.remove('loaded');
+    }
+    
     try {
         const response = await fetch(dataFile);
         if (!response.ok) {
             throw new Error(`Failed to load ${dataFile}`);
         }
         const data = await response.json();
-        renderFunction(containerSelector, data);
+        
+        // Render content (this will wait for images)
+        await renderFunction(containerSelector, data);
         
         // Extract location attributes from newly rendered cards/rows
         extractLocationAttributes();
+        
+        // Hide loading spinner
+        if (spinner) {
+            spinner.classList.add('hidden');
+        }
         
         // Dispatch custom event to trigger filter initialization
         setTimeout(() => {
@@ -196,6 +293,15 @@ async function loadAndRender(pageType) {
         }, 100);
     } catch (error) {
         console.error('Error loading data:', error);
+        // Hide loading spinner on error
+        if (spinner) {
+            spinner.classList.add('hidden');
+        }
+        // Show content even on error (might be empty)
+        if (container) {
+            container.classList.remove('loading');
+            container.classList.add('loaded');
+        }
     }
 }
 
