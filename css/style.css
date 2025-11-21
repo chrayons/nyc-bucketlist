@@ -178,7 +178,7 @@ header {
     right:0;
     left: 0;
     z-index: 1000;
-    padding: 16px;
+    padding: 16px 24px; /* Match cards container horizontal padding for alignment */
     background: rgba(253, 253, 253, 0.6); /* Root white color at 60% opacity */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -243,8 +243,7 @@ header nav {
 
 @media (max-width:900px) {
     header{
-        padding-top:32px;
-        padding-bottom: 8px;
+        padding: 32px 24px 8px 24px; /* Match cards container right padding (24px) */
     }
     nav label.hamburger {
         display: block;
@@ -253,6 +252,7 @@ header nav {
         top: auto;
         transform: none;
         text-align: right;
+        padding: 0; /* Remove padding to align with container edge */
     }
 
     nav .nav-menu{
@@ -292,17 +292,21 @@ footer {
 /* Page layout */
 main{
     max-width: 850px;
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 0 24px 24px;
     box-sizing: border-box; /* Keeps padding inside the 1000px cap */
+    min-height: calc(100vh - 80px); /* Viewport height minus approximate header height */
+    justify-content: center; /* Vertically center content */
+    padding-top: max(112px, 5vh); /* Minimum 112px or 5% of viewport, whichever is larger */
 }
 
 .hero-container{
     display: block;
     margin-inline: 0;
     padding-inline: 0;
-    padding-top: 112px;
+    padding-top: 0; /* Remove fixed padding, let main handle spacing */
 }
 
 .hero-title span{
