@@ -718,10 +718,14 @@ main{
     justify-content: flex-start; /* Align content to start */
 }
 
-.filter-section .filter-container,
+.filter-section .filter-container {
+    display: flex;
+    align-items: center; /* Center-align the buttons within their container */
+}
+
 .filter-section .custom-dropdown {
     display: flex;
-    align-items: center; /* Center-align the buttons/box within their container */
+    align-items: flex-start; /* Left-align the label and box */
 }
 
 .filter-section.status-section {
@@ -821,7 +825,7 @@ main{
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0; /* Right-align with trigger button */
+    left: 0; /* Left-align with trigger box */
     margin-top: 8px;
     display: none;
     flex-direction: column;
@@ -831,7 +835,9 @@ main{
     -webkit-backdrop-filter: blur(8px);
     border-radius: 4px;
     padding: 4px 0;
-    min-width: 150px;
+    width: 100%; /* Match the width of the container (aligns with dropdown-active-filter) */
+    box-sizing: border-box;
+    min-width: 120px; /* Match dropdown-active-filter min-width */
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
