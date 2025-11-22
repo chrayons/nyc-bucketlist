@@ -245,6 +245,14 @@ header nav {
     header{
         padding: 32px 24px 8px 24px; /* Match cards container right padding (24px) */
     }
+    
+    header nav {
+        display: flex;
+        justify-content: flex-end; /* Align hamburger to right edge */
+        align-items: center;
+        width: 100%;
+    }
+    
     nav label.hamburger {
         display: block;
         position: static;
@@ -253,6 +261,7 @@ header nav {
         transform: none;
         text-align: right;
         padding: 0; /* Remove padding to align with container edge */
+        margin: 0; /* Ensure no margin affecting alignment */
     }
 
     nav .nav-menu{
@@ -629,7 +638,7 @@ main{
     }
     
     .dropdown-active-filter {
-        min-width: 120px; /* Slightly smaller dropdown box on mobile */
+        width: 130px; /* Fixed width for mobile (proportionally smaller) */
         padding: 3px 10px; /* Reduced by 1px top/bottom to account for border */
         font-size: 14px; /* Slightly smaller text */
     }
@@ -660,7 +669,7 @@ main{
     }
     
     .dropdown-active-filter {
-        min-width: 100px; /* Slightly smaller dropdown */
+        width: 120px; /* Fixed width for extra small screens (proportionally smaller) */
         font-size: 13px; /* Match button font size */
         padding: 2px 9px; /* Reduced by 1px top/bottom to account for border (3px - 1px = 2px) */
         line-height: 1.5; /* Maintain same line-height ratio */
@@ -771,7 +780,7 @@ main{
     color: var(--black);
     text-transform: lowercase;
     text-align: left;
-    min-width: 120px; /* Reduced min-width to make box smaller */
+    width: 140px; /* Fixed width to accommodate longest option (greenpoint) */
     box-sizing: border-box;
     cursor: pointer;
     display: flex;
