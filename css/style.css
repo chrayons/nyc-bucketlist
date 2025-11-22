@@ -130,6 +130,7 @@ html {
                                          * Used as a reference, and still needs to be further understood */
     line-height: 1.5;
     letter-spacing: var(--ls-tight);
+    color: var(--black); /* Use custom black color from root */
 }
 
 /* Empty state message */
