@@ -66,6 +66,7 @@
 /* Make all pages have a off-white bg */
 html, body {
     background-color: var(--white);
+    color: var(--black); /* Use custom black color for all text by default */
 }
 
 /* Prevent horizontal shift when scrollbar appears/disappears */
@@ -81,6 +82,7 @@ html {
     line-height: 1.5; /* 150% */
     letter-spacing: var(--ls-wide);
     text-transform: none;
+    color: var(--black);
 }
 
 /* Note */
@@ -90,6 +92,7 @@ html {
     font-size: 12px;
     line-height: 1.5;
     letter-spacing: var(--ls-wide);
+    color: var(--black);
 }
 
 /* Tag */
@@ -100,6 +103,7 @@ html {
     line-height: 1.5;
     letter-spacing: var(--ls-wide);
     font-style: normal;
+    color: var(--black);
 }
 
 /* Small header */
@@ -110,6 +114,7 @@ html {
     line-height: 1.5;
     letter-spacing: var(--ls-tight);
     text-transform: capitalize;
+    color: var(--black);
 }
 
 /* Title */
@@ -119,6 +124,7 @@ html {
     font-size: 24px;
     line-height: 1.2;
     letter-spacing: var(--ls-tight);
+    color: var(--black);
 }
 
 /* Header (display) */
@@ -141,6 +147,7 @@ html {
     line-height: 1.2; /* Less line height than text-header */
     letter-spacing: var(--ls-tight);
     text-align: center;
+    color: var(--black);
 }
 
 .empty-state-message {
