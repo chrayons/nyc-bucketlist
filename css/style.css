@@ -256,26 +256,36 @@ header nav {
     
     header nav {
         display: flex;
-        justify-content: flex-end; /* Align hamburger to right edge */
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-end; /* Align hamburger to right edge */
         width: 100%;
     }
     
     nav label.hamburger {
         display: block;
-        position: static;
-        right: auto;
-        top: auto;
-        transform: none;
+        position: relative; /* Keep it in normal flow */
+        right: 0;
+        top: 0;
+        transform: rotate(0deg);
         text-align: right;
         padding: 0; /* Remove padding to align with container edge */
-        margin: 0; /* Ensure no margin affecting alignment */
+        margin: 0 0 8px 0; /* Add bottom margin for spacing, no other margins */
+        transition: transform 0.3s ease; /* Smooth rotation */
+        z-index: 100; /* Keep it above menu items */
+        align-self: flex-end; /* Keep it aligned to the right */
+    }
+
+    /* Rotate hamburger 90 degrees when menu is open */
+    nav input[type="checkbox"]:checked ~ label.hamburger {
+        transform: rotate(90deg);
     }
 
     nav .nav-menu{
         display: block;
         padding: 0;
         margin: 0;
+        width: 100%; /* Full width menu */
+        order: 3; /* Ensure it comes after the hamburger */
     }
 
     nav .nav-menu li {
@@ -287,11 +297,11 @@ header nav {
     /*When the checkbox input is NOT checked, then you should select
      * the next element with class .nav-menu and hide that element.
      * This works because in the HTML, code is in this order:
-     *      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
      *      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+     *      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
      *      <ul class="nav-menu text-small-header" id="nav-menu">
      * otherwise if it is checked, then show the nav-menu.*/
-    nav input[type="checkbox"]:not(:checked) + .nav-menu { display: none;}
+    nav input[type="checkbox"]:not(:checked) ~ .nav-menu { display: none;}
 }
 
 
