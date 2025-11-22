@@ -12,6 +12,17 @@
       "description": "Pretty much free entry if you live in New York and have proof of address! The MET is everyone's must-go. Even though I've been, I've really not. I've only visited one small section, I think. The section I want to visit the most is probably the Costume Institute, and the Arms and Armor? Please ask me out and go life drawing here with me! Side note, the gift shop is delightful too."
     },
     {
+      "title": "Brooklyn Museum",
+      "url": "https://www.brooklynmuseum.org/",
+      "status": "loved",
+      "tags": ["brooklyn", "loved"],
+      "image": "img/brooklynmuseum.jpg",
+      "imageAlt": "Image of marbelled interior at the MET Museum.",
+      "imageCredit": "Me, myself, and I",
+      "imageCreditUrl": "",
+      "description": "Every room felt like I entered a different world. I visited when they had a special exhibition on Monet, and it was interesting to see how they incorporate new  technologies (e.g. projectors, lights) to emphasize the impressionist artwork. The other floors had amazing layouts too - lots of art and design artifacts from both modern and traditional eras. Highly recommend!"
+    },
+    {
       "title": "Whitney Museum",
       "url": "https://www.whitney.org",
       "status": "loved",

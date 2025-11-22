@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sightseeing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Preload critical fonts to prevent flashing -->
+    <link rel="preload" href="/fonts/OpenSauceOne-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/BellavoirDelight.otf" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon code referenced from https://css-tricks.com/emoji-as-a-favicon/ -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪣</text></svg>">
+    <script src="js/render.js" defer></script>
+    <script src="js/filter.js" defer></script>
+    <script>
+        // Load and render sightseeing data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAndRender('sightseeing');
+        });
+    </script>
+</head>
+    <body>
+    <header>
+        <nav aria-label="Navigation Bar">
+            <!-- Hamburger menu for mobile
+                Adapted from this tutorial: https://threkk.medium.com/how-to-make-a-css-only-hamburger-menu-f7ad41e13399 -->
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+
+            <!-- Fixed navbar -->
+            <ul class="nav-menu text-small-header" id="nav-menu">
+                <li><a href="index.html">ABOUT</a></li>
+                <li><a href="activities.html">ACTIVITIES</a></li>
+                <li><a href="museums.html">MUSEUMS</a></li>
+                <li><a href="sightseeing.html" aria-current="page">SIGHTSEEING</a></li>
+                <li><a href="workspots.html">WORK SPOTS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="activities__cards">
+      <h1 class="page-title text-header">sightseeing</h1>
+      <!-- FILTER BUTTONS -->
+      <div class="filters-wrapper">
+          <div class="filter-section status-section">
+              <label class="filter-label text-small-header">STATUS</label>
+              <div class="filter-container">
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="all" data-type="status">all</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="to-try" data-type="status">to-try</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="loved" data-type="status">loved</button>
+              </div>
+          </div>
+          <div class="filter-section location-section">
+              <div class="custom-dropdown">
+                  <button class="dropdown-trigger" id="borough-trigger">
+                      <span class="dropdown-label">BOROUGH</span>
+                  </button>
+                  <div class="dropdown-active-filter" id="borough-active-filter">
+                      <span class="filter-text">all</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-arrow">
+                          <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                  </div>
+                  <div class="dropdown-menu" id="borough-menu">
+                      <button class="dropdown-option" data-value="all">all</button>
+                      <button class="dropdown-option" data-value="manhattan">manhattan</button>
+                      <button class="dropdown-option" data-value="brooklyn">brooklyn</button>
+                      <button class="dropdown-option" data-value="queens">queens</button>
+                      <button class="dropdown-option" data-value="lic">lic</button>
+                      <button class="dropdown-option" data-value="greenpoint">greenpoint</button>
+                      <button class="dropdown-option" data-value="outskirts">outskirts</button>
+                      <button class="dropdown-option" data-value="the bronx">the bronx</button>
+                  </div>
+                  <select class="location-select hidden" id="location-select">
+                      <option value="all">all</option>
+                      <option value="manhattan">manhattan</option>
+                      <option value="brooklyn">brooklyn</option>
+                      <option value="queens">queens</option>
+                      <option value="lic">lic</option>
+                      <option value="greenpoint">greenpoint</option>
+                      <option value="outskirts">outskirts</option>
+                      <option value="the bronx">the bronx</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+      <!-- CARD LIST/COLUMNS -->
+      <div class="empty-state-message">
+          <p class="text-empty-state">oops, sorry i have no recs.<br>send me some?</p>
+      </div>
+      <section class="cards" aria-label="Sightseeing List">
+          <!-- Cards loosely adapted from this tutorial:
+                https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Card
+                to match my Figma design -->
+          <!--To add more cards, you can follow the template of any of the cards listed below and edit accordingly -->
+          <article class="card" data-status="to-try">
+              <!-- card info -->
+              <div class="card__surface">
+                  <div class="card__tags">
+                      <span class="tag text-tag">outskirts</span>
+                      <span class="tag text-tag">to-try</span>
+                  </div>
+                  <h2 class="card__title text-title"> <a href="https://www.nps.gov/elis/index.htm"> Ellis Island </a></h2>
+                  <figure class="card__media">
+                      <img src="img/ellisisland.jpg" alt="Image of a red brick building in Ellis Island.">
+                      <figcaption class="card__credit text-note">Image courtesy of
+                          <a href="https://unsplash.com/photos/brown-and-white-concrete-building-under-blue-sky-during-daytime-0EdsfK6jWMA">Sergio Del Rio</a>. </figcaption>
+                  </figure>
+                  <div class="card__body text-body">
+                      <p>Would be such a fun day trip! You take a ferry there (best to book in advance).
+                          The Ellis Island National Museum of Immigration
+                          shares the stories of immigrants entering the U.S., and you also get a
+                          great view of the Statue of Liberty from the grounds.</p>
+                      </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">brooklyn</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+                  <h2 class="card__title text-title"> <a href="https://ohny.org/place/brooklyn-army-terminal-2/">
+                      Brooklyn Army Terminal </a></h2>
+              <figure class="card__media">
+                  <img src="img/brooklynarmyterminal.jpg" alt="Image of an industrial looking builting with a tall open glass roof.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://ohny.org/place/brooklyn-army-terminal-2/">Albert Vecerka</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>You can enjoy a historic atrium, visit the waterfront, attend an event,
+                   or visit some local businesses. Would be a fun place for a mini photoshoot, and just
+                   explore somewhere new for a day!</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">brooklyn</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+                  <h2 class="card__title text-title" > <a href="https://www.bbg.org/">
+                      Brooklyn Botanic Garden</a></h2>
+              <figure class="card__media">
+                  <img src="img/brooklynbotanicgarden.jpg" alt="Image of a greenhouse in Brooklyn Botanic Garden.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.brideandblossom.com/blog/bb-venues-we-love-brooklyn-botanic-garden/">Julia Newman Photography</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>Free for Pratt students with your ID! A peaceful escape with
+                      thousands of plant species spread over 52 acres,
+                      right beside Prospect Park. Especially beautiful during cherry blossom season.</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="loved">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">loved</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://pier57nyc.com/">
+                  Pier 57</a></h2>
+              <figure class="card__media">
+                  <img src="img/pier57.webp" alt="Image of a Pier 57, with many structures seeming to sprout out from the water. There are trees lining these structures.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.google.com/maps/contrib/105849464868115595894">Alexander Rodriguez Soto</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>A lively waterfront destination with a food hall, community events,
+                      and rooftop park space. Great for exploring art, culture, and nature.
+                      It's also right by the High Line, Little Island, and the Whitney Museum!</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">lic</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://parks.ny.gov/visit/state-parks/gantry-plaza-state-park">
+                  Gantry Park LIC</a></h2>
+              <figure class="card__media">
+                  <img src="img/gantrypark.webp" alt="Image of Gantry Park, aerial view. There is water, trees, and a playground area.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://parks.ny.gov/visit/state-parks/gantry-plaza-state-park">
+                          New York State Parks, Recreation and Historic Preservation</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>I hear this is a great spot to catch a sunset of the Manhattan skyline, including landmarks like the Empire State Building
+                      and the United Nations. There are lawns, piers, and recreational facilities -
+                      perfect for relaxing or joining a casual sports drop-in.</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">brooklyn</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://www.prospectpark.org/">Prospect Park</a></h2>
+              <figure class="card__media">
+                  <img src="img/prospectpark.webp" alt="Image of a park, with a winding path, people and dogs, and lots of trees.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://elizabethcolley.photoshelter.com/">Elizabeth Jeegin Colley</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>You can play sports and touch grass. I love how the website curated a whole <a href="https://www.prospectpark.org/visit-the-park/things-to-do/">list of things to do</a>,
+                  including volleyball (my favourite sport!). Seems like a peaceful place to do enjoy a book outside,
+                  have a picnic with friends, or stroll with family.
+                  </p>
+              </div>
+              </div>
+          </article>
+
+         <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.nyctourism.com/new-york/manhattan/roosevelt-island/">Roosevelt Island</a></h2>
+              <figure class="card__media">
+                  <img src="img/rooseveltisland.webp"
+                       alt="Image of Roosevelt Island, with a focus on the lighthouse.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.preservenys.org/blog/excellence-award-spotlight-roosevelt-island-lighthouse">
+                          50 Preservation League of NYS</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A quick day trip with unique views of Manhattan from the aerial tramway!
+                  There are parks, walking trails, and the historic lighthouse at the northern tip. NYC
+                  Tourism created a
+                 <a href="https://www.nyctourism.com/articles/a-day-on-roosevelt-island/">list</a> of things to do. It's not too far from Manhattan, either. </p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">outskirts</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.govisland.com/">Governor's Island</a></h2>
+              <figure class="card__media">
+                  <img src="img/governorsisland.png"
+                       alt="Image of a man exploring a park, walking on rocks, with a view of the cityscape and water.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.govisland.com/blog/governors-island-2022-year-in-review">
+                          Julienne Schaer</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A car-free island! This calls for a daytrip - I want to bike around, see monuments, and view public art.
+                  They also have a very long slide you can go down, but I'm a little scared of slides. Anywho, to get there, you can
+                  hop on a free ferry! The official website has a <a href="https://www.govisland.com/things-to-do">list of things to do</a>.</p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">queens</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="hhttps://www.cityneighborhoods.nyc/forest-hills-gardens">Forest Hill Gardens</a></h2>
+              <figure class="card__media">
+                  <img src="img/foresthillgardens.webp" alt="Image of a red house surrounded by greenery and a paving road.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.cityneighborhoods.nyc/forest-hills-gardens">Samuel Walters</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A picturesque neighbourhood in Queens - it sort of feels like you're walking around in the UK because
+                  they have so much Tudor Revival architecture. Great for a leisurely stroll, admiring the gardens and tree-lined streets.</p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">the bronx</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://www.nybg.org/">New York Botanical Garden</a></h2>
+              <figure class="card__media">
+                  <img src="img/nybotanicalgarden.webp"
+                       alt="Image of a greenhouse on a blue-sky day. There are lilypads in the foreground and lots of greenery.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.google.com/maps/contrib/110893616700953850614">Kiana Brayton</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A massive botanical oasis in the Bronx - the flagship garden of NYC. Features rare and exotic plants,
+                  special exhibits, and even a preserved old-growth forest. Worth checking the <a href="https://www.nybg.org/whats-on/">calendar</a> for seasonal events.</p>
+              </div>
+              </div>
+          </article>
+
+            <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">the bronx</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.cityneighborhoods.nyc/riverdale">Riverdale</a></h2>
+              <figure class="card__media">
+                  <img src="img/riverdale.webp"
+                       alt="Image of two houses, where you can see the river.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.untappedcities.com/20-must-visit-sites-in-riverdale-bronx-an-untapped-cities-guide/">
+                          Daniela Salazon</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>The name reminds me of the show <a href="https://en.wikipedia.org/wiki/Riverdale_(American_TV_series)">Riverdale</a> I used to love in high school.
+                  Anyway, the real Riverdale is a quiet, residential neighborhood in the Bronx with stunning views of the Hudson River.
+                  I’d love to explore the beautiful architecture there -
+                  especially the Colonial Revival, Tudor Revival, and Beaux-Arts homes!</p>
+              </div>
+              </div>
+          </article>
+
+
+      </section>
+    </main>
+
+    <footer>
+        <p class="text-note">&copy; 2025 <a href="https://www.christina-lu.com/" target="_blank" rel="noopener noreferrer">Christina Lu</a>. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

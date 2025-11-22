@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Museums</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Preload critical fonts to prevent flashing -->
+    <link rel="preload" href="/fonts/OpenSauceOne-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/OpenSauceOne-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/fonts/BellavoirDelight.otf" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon code referenced from https://css-tricks.com/emoji-as-a-favicon/ -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪣</text></svg>">
+    <script src="js/render.js" defer></script>
+    <script src="js/filter.js" defer></script>
+    <script>
+        // Load and render museums data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAndRender('museums');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav aria-label="Primary">
+            <!-- Hamburger menu for mobile
+                Adapted from this tutorial: https://threkk.medium.com/how-to-make-a-css-only-hamburger-menu-f7ad41e13399 -->
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+            <!-- Fixed navbar -->
+            <ul class="nav-menu text-small-header" id="nav-menu">
+                <li><a href="index.html">ABOUT</a></li>
+                <li><a href="activities.html">ACTIVITIES</a></li>
+                <li><a href="museums.html" aria-current="page">MUSEUMS</a></li>
+                <li><a href="sightseeing.html">SIGHTSEEING</a></li>
+                <li><a href="workspots.html">WORK SPOTS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main class="activities__cards">
+      <h1 class="page-title text-header">museums</h1>
+      <!-- FILTER BUTTONS -->
+      <div class="filters-wrapper">
+          <div class="filter-section status-section">
+              <label class="filter-label text-small-header">STATUS</label>
+              <div class="filter-container">
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="all" data-type="status">all</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="to-try" data-type="status">to-try</button>
+                  <button class="filter-btn filter-btn-status text-small-header" data-filter="loved" data-type="status">loved</button>
+              </div>
+          </div>
+          <div class="filter-section location-section">
+              <div class="custom-dropdown">
+                  <button class="dropdown-trigger" id="borough-trigger">
+                      <span class="dropdown-label">BOROUGH</span>
+                  </button>
+                  <div class="dropdown-active-filter" id="borough-active-filter">
+                      <span class="filter-text">all</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-arrow">
+                          <path d="m6 9 6 6 6-6"/>
+                      </svg>
+                  </div>
+                  <div class="dropdown-menu" id="borough-menu">
+                      <button class="dropdown-option" data-value="all">all</button>
+                      <button class="dropdown-option" data-value="manhattan">manhattan</button>
+                      <button class="dropdown-option" data-value="brooklyn">brooklyn</button>
+                      <button class="dropdown-option" data-value="queens">queens</button>
+                      <button class="dropdown-option" data-value="lic">lic</button>
+                      <button class="dropdown-option" data-value="greenpoint">greenpoint</button>
+                      <button class="dropdown-option" data-value="outskirts">outskirts</button>
+                      <button class="dropdown-option" data-value="the bronx">the bronx</button>
+                  </div>
+                  <select class="location-select hidden" id="location-select">
+                      <option value="all">all</option>
+                      <option value="manhattan">manhattan</option>
+                      <option value="brooklyn">brooklyn</option>
+                      <option value="queens">queens</option>
+                      <option value="lic">lic</option>
+                      <option value="greenpoint">greenpoint</option>
+                      <option value="outskirts">outskirts</option>
+                      <option value="the bronx">the bronx</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+      <!-- CARD LIST/COLUMNS -->
+      <div class="empty-state-message">
+          <p class="text-empty-state">oops, sorry i have no recs.<br>send me some?</p>
+      </div>
+      <section class="cards" aria-label="Museums List">
+          <!-- Cards will be rendered from data/museums.json by render.js -->
+      </section>
+                  <div class="card__tags">
+                      <span class="tag text-tag">manhattan</span>
+                      <span class="tag text-tag">loved</span>
+                  </div>
+                  <h2 class="card__title text-title">
+                      <a href="https://www.metmuseum.org/">
+                          The MET Fifth Ave</a></h2>
+                  <figure class="card__media">
+                      <img src="img/met.webp" alt="Image of marbelled interior at the MET Museum.">
+                      <figcaption class="card__credit text-note">Image courtesy of
+                          <a href="https://maps.google.com/maps/contrib/110394467847650748547">Alex Moskal</a>. </figcaption>
+                  </figure>
+                  <div class="card__body text-body">
+                      <p>Pretty much free entry if you live in New York and have proof of address! The MET is everyone's must-go. Even though I've been, I've really not. I've only visited one small section, I think.
+                          The section I want to visit the most is probably the Costume Institute, and the Arms and Armor?
+                          Please ask me out and go life drawing here with me! Side note, the gift shop is delightful too.
+                      </p>
+                      </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="loved">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">loved</span>
+              </div>
+                  <h2 class="card__title text-title">
+                      <a href="https://www.whitney.org"> Whitney Museum </a></h2>
+              <figure class="card__media">
+                  <img src="img/whitney.jpeg" alt="Image of the Whitney Museum.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.nyctourism.com/museums-galleries/whitney-museum-of-american-art/">NYC Tourism</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p> Free entry if you present your Pratt student ID! Might be one of my personal favourite museums. It's somewhat small compared to some of the others on this
+                  list, but the exhibitions are always well curated and it's never too busy. I love
+                  the view outside the museum, and walking along the exterior staircase. So many happy memories made here!</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+                  <h2 class="card__title text-title" > <a href="https://www.amnh.org/">
+                      American Museum of Natural History</a></h2>
+              <figure class="card__media">
+                  <img src="img/americanmuseumofnaturalhistory.jpg" alt="Image of the Gilder Center at the American Museum of Natural History, where there are seamless, arching walls.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.instagram.com/p/DGQXks5RkSq/">@nyclovesnyc/Instagram</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>Personally just want to visit the Gilder Center and look at the architecture once more.
+                  I think this would be a fun date idea, but since I've been to a few other natural history
+                  museums in the world, this museum isn't the highest on my priority list.</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://www.911memorial.org/">
+                  9/11 Museum</a></h2>
+              <figure class="card__media">
+                  <img src="img/911.jpg" alt="Image of the 9/11 memorial.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://secretnyc.co/9-11-memorial-and-museum-nyc/">Eder Dade</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>I was born in 2001 - much too young to actually know and understand the consequences that came
+                  from this tragedy. I want to visit so I can learn more about the history and what happened,
+                  and to respect the people who passed on this day. </p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title"><a href="https://www.cooperhewitt.org/">
+                  Cooper Hewitt</a></h2>
+              <figure class="card__media">
+                  <img src="img/cooperhewitt.jpg" alt="Image of the Cooper Hewitt, with grand staircases and interactive display tables.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://ny.curbed.com/2014/12/12/10012386/tour-the-cooper-hewitt-now-open-after-a-91m-overhaul">Max Touhey</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+                  <p>Free entry if you present your Pratt student ID!
+                      The only museum in the US dedicated to historical and contemporary design.
+                      Unfortunately, it's closed at the time of me writing.
+                      I  think this would be a great place to learn what
+                      good design (as opposed to art) looks like, and how I might learn from what I see!</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.guggenheim.org/">Guggenheim</a></h2>
+              <figure class="card__media">
+                  <img src="img/guggenheim.webp"
+                       alt="Image of the Guggenheim museum, a curved building with a view of all floors.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://maps.google.com/maps/contrib/102035186089423479823">Julia Ohmann</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>Free entry if you present your Pratt student ID! A UNESCO World Heritage site where the building
+                  itself feels like part of the exhibition.
+                  The contemporary and abstract pieces
+                  are far from my own style, which makes exploring
+                  how each artist describes their process especially fascinating!
+                  </p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://madmuseum.org/">Museum of Arts and Design</a></h2>
+              <figure class="card__media">
+                  <img src="img/madmuseum.jpg"
+                       alt="Image of a few design objects - like plates and glassware - sold at the Museum of Arts and Design.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://madmuseum.org/visit">MAD Museum</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>Modern museum filled with art, craft, and design.
+                  I’d love to explore the work of living artists here -
+                  and the gift shop is probably amazing if it features the same makers from the exhibitions!
+                  </p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.frick.org/">The Frick</a></h2>
+              <figure class="card__media">
+                  <img src="img/frick.jpg"
+                       alt="Image of a greenhouse interior at the Frick.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://en.wikipedia.org/wiki/Frick_Collection#/media/File:Frick_Collection_New_York_cour.jpg">CVB</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>Known for its Renaissance and Old Master works,
+                  The Frick Collection lets you wander
+                  through preserved historic rooms. There's also a fountain room in this museum
+                  that reminds me of a space I designed in my Animal Crossing town, and I'd love to see it in person.</p>
+              </div>
+              </div>
+          </article>
+
+           <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.mercerlabs.com/">Mercer Labs</a></h2>
+              <figure class="card__media">
+                  <img src="img/mercer.jpg"
+                       alt="A scene from the Dragon Room at Mercer Labs, in which more than 500,000 tiny LED lights create 'volumetric lighting.''">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.nytimes.com/2024/03/08/arts/design/mercer-labs-roy-nachum-braille.html">Hiroko Masuike/The New York Times</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A museum blending art and technology — lots of screens, light installations, and immersive rooms.
+                  At the time of writing, they have a <a href="https://tickets.mercerlabs.com/event/one-piece-x-mercer-labs-0c358n">One Piece exhibition</a>.
+                  The whole vibe reminds me a bit of <a href="https://www.teamlab.art/">teamLAB</a> from Japan. I heard it's a bit
+                  pricey, but would be an interesting date spot!</p>
+              </div>
+              </div>
+          </article>
+
+            <article class="card" data-status="loved">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">queens</span>
+                  <span class="tag text-tag">loved</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.noguchi.org/museum/exhibitions/current/">Noguchi Museum</a></h2>
+              <figure class="card__media">
+                  <img src="img/noguchi.jpg"
+                       alt="Image of an installation inside the Noguchi Museum with minimal sculptures.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.noguchi.org/">Noguchi</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>A beautifully quiet museum where nature and geometry meet.
+                  Noguchi designed the iconic paper lamps we all love (and probably have a dupe for),
+                  and the garden makes the whole space feel like a breath of fresh air.
+                  Thanks to my friend Cat for the perfect recommendation!</p>
+              </div>
+              </div>
+          </article>
+
+        <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.metmuseum.org/plan-your-visit/met-cloisters">The MET Cloisters</a></h2>
+              <figure class="card__media">
+                  <img src="img/cloisters.webp"
+                       alt="The Cloisters, New York, part of the Metropolitan Museum of Art.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.countrylife.co.uk/architecture/the-medieval-cloisters-that-ended-up-in-manhattan-257275">Will Pryce for Country Life Magazine</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>Pretty much free entry if you live in New York and have proof of address!
+                  My roommates went to take photos in the garden, and I thought they flew to Europe.
+                  They specialize in medieval art and sacred architecture, and it
+                  feels like stepping into history. Definitely a place
+                  I’d love to bring my family.</p>
+              </div>
+              </div>
+          </article>
+
+          <article class="card" data-status="to-try">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">to-try</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.eldridgestreet.org/">Museum at Eldridge St.</a></h2>
+              <figure class="card__media">
+                  <img src="img/eldridgest.jpg"
+                       alt="Image of the Museum at Eldridge St., a historic restored synagogue.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.instagram.com/p/DGjMm9eyMjd/s">@museumateldridgestreet/Instagram</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>That stunning blue glass window looks almost unreal -
+                  like something out of a dream. I’d love to visit
+                  and learn more about Jewish immigrant history in New York,
+                  and how this synagogue became such an important part of that story!</p>
+              </div>
+              </div>
+          </article>
+
+           <article class="card" data-status="loved">
+              <div class="card__surface">
+              <div class="card__tags">
+                  <span class="tag text-tag">manhattan</span>
+                  <span class="tag text-tag">loved</span>
+              </div>
+              <h2 class="card__title text-title">
+                  <a href="https://www.moma.org/">MOMA</a></h2>
+              <figure class="card__media">
+                  <img src="img/moma.jpg"
+                       alt="Image of a children sitting in front of a painting at MOMA.">
+                  <figcaption class="card__credit text-note">Image courtesy of
+                      <a href="https://www.newyorkwelcome.net/tours/attractions-tickets/moma-museum-admission.htm">New York Welcome</a>.</figcaption>
+              </figure>
+              <div class="card__body text-body">
+              <p>I saw their <a href="https://www.moma.org/calendar/exhibitions/5756">exhibition on the turning points of design</a>, and
+                  I loved how well curated it was! MoMA is large enough
+                  to feel like a real adventure while still being manageable
+                  in one visit - a rare sweet spot for a museum.
+                  The MOMA gift store is also such a fun place to go and buy gifts!</p>
+              </div>
+              </div>
+          </article>
+      </section>
+    </main>
+
+    <footer>
+        <p class="text-note">&copy; 2025 <a href="https://www.christina-lu.com/" target="_blank" rel="noopener noreferrer">Christina Lu</a>. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
