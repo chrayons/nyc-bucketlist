@@ -628,6 +628,25 @@ main{
     .work-table td:nth-child(6) {
         display: none;
     }
+    
+    /* Adjust column widths on mobile to ensure STATUS column is visible */
+    .work-table th:nth-child(1),
+    .work-table td:nth-child(1) {
+        width: 28%; /* NAME - reduced from 16% to give more space */
+        min-width: 100px; /* Reduced from 120px */
+    }
+    
+    .work-table th:nth-child(3),
+    .work-table td:nth-child(3) {
+        width: 45%; /* LOCATION - reduced from 18% to give more space */
+        min-width: 120px; /* Reduced from 160px */
+    }
+    
+    .work-table th:nth-child(7),
+    .work-table td:nth-child(7) {
+        width: 27%; /* STATUS - increased from 10% to ensure visibility */
+        min-width: 90px; /* Increased from 80px to accommodate pill */
+    }
 }
 
 /* Mobile filter spacing adjustments */
