@@ -4,7 +4,7 @@
         src: url('/fonts/OpenSauceOne-Light.ttf') format('truetype');
         font-weight: 300; /* Light */
         font-style: normal;
-        font-display: swap; /* Shows fallback first, then swaps when font loads - prevents invisible text */
+        font-display: optional; /* Prevents font swap flickering when fonts are preloaded */
     }
 
     @font-face {
@@ -12,7 +12,7 @@
         src: url("/fonts/OpenSauceOne-Regular.ttf") format("truetype");
         font-weight: 400;
         font-style: normal;
-        font-display: swap; /* Shows fallback first, then swaps when font loads - prevents invisible text */
+        font-display: optional; /* Prevents font swap flickering when fonts are preloaded */
     }
 
     @font-face {
@@ -20,7 +20,7 @@
         src: url('/fonts/OpenSauceOne-Medium.ttf') format('truetype');
         font-weight: 500;
         font-style: normal;
-        font-display: swap; /* Shows fallback first, then swaps when font loads - prevents invisible text */
+        font-display: optional; /* Prevents font swap flickering when fonts are preloaded */
     }
 
     @font-face {
@@ -28,7 +28,7 @@
         src: url('/fonts/OpenSauceOne-Bold.ttf') format('truetype');
         font-weight: 700;
         font-style: normal;
-        font-display: swap; /* Shows fallback first, then swaps when font loads - prevents invisible text */
+        font-display: optional; /* Prevents font swap flickering when fonts are preloaded */
     }
 
     @font-face {
@@ -36,7 +36,7 @@
         src: url('/fonts/BellavoirDelight.otf') format('opentype');
         font-weight: 400;
         font-style: normal;
-        font-display: swap; /* Shows fallback first, then swaps when font loads - prevents invisible text */
+        font-display: optional; /* Prevents font swap flickering when fonts are preloaded */
     }
 
 /* UNIVERSAL FONT STYLES / GUIDES */
@@ -988,11 +988,13 @@ main{
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.cards:not(.loaded):not(.loading),
 .cards.loading,
+.work-table tbody:not(.loaded):not(.loading),
 .work-table tbody.loading {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
 }
 
 .cards.loaded,
