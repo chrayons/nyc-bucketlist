@@ -420,6 +420,7 @@ main{
 }
 
 .note-blue {
+    max-width: 540px; /* Wider so all three instructions stay on one line each */
     background: var(--lightblue);
     padding: 32px;
     border-radius: 0;
@@ -427,6 +428,9 @@ main{
     box-shadow: 0 4px 12px rgba(58, 8, 8, 0.05); /* Using --black color with opacity */
     transform: rotate(7deg) translatex(-12px);
     z-index: 2; /* sit on top */
+}
+.note-blue .note-inner {
+    max-width: 500px; /* Enough width so “where to go.” and “more info.” don’t wrap */
 }
 .note-grey {
     background: var(--lightgrey);
