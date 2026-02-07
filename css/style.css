@@ -49,23 +49,31 @@
     --ls-wide: 0.01em; /* +1%  */
     --ls-tight: -0.011em; /* -1.1% */
 
-    --blue:#80B7DE;
-    --lightblue: #ECF8FE;
-    --black:#3A0808;
-    --white: #FDFDFD;
-    --darkgrey: #837372;
-    --accent: #245E90;
-    --lightgrey: #F5F6F7;
-    --tag-bg: #6B5B5B; /* Darker grey for tag backgrounds */
+    /* Minimal palette: light, soft neutrals + blue accent */
+    --black: #2C2C2C; /* Soft black – not too dark */
+    --white: #FCFCFC;
+    --bg: #F8F9FA; /* Slightly cooler, light grey-white */
+    --darkgrey: #6B7280; /* Softer grey for nav/secondary text */
+    --lightgrey: #F4F5F6; /* Lighter grey for "to-try" – recedes */
+    --coolgrey: #E2E5E8; /* Hover states, pills */
+    --tag-bg: #5C6166;
+    /* Blues */
+    --blue: #4A7BA7; /* Muted blue for hero/accent */
+    --lightblue: #D4E2F0; /* "loved" rows/cards: clearer blue, more contrast with grey */
+    --blue-recede: #E2EAF2; /* Lighter than cards – "christina's" sits behind in space */
+    --accent: #3B6B94; /* Blue for links */
 
     /* Gaps for pages with cards or rows */
     --card-gap: 32px; /* Gap between different cards on activities, museum, sightseeing */
     --row-gap: 18px; /* Vertical space between rows in the work spots table */
+
+    /* Fixed header height: used for main padding-top and sticky table header offset (matches nav height so no gap) */
+    --header-height: 56px;
 }
 
-/* Make all pages have a off-white bg */
+/* Page background */
 html, body {
-    background-color: var(--white);
+    background-color: var(--bg);
     color: var(--black); /* Use custom black color for all text by default */
 }
 
@@ -187,9 +195,7 @@ header {
     left: 0;
     z-index: 1000;
     padding: 16px 24px; /* Match cards container horizontal padding for alignment */
-    background: rgba(253, 253, 253, 0.6); /* Root white color at 60% opacity */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: var(--bg);
 }
 
 /* NAV COLORS + HOVER + ACTIVE */
@@ -208,7 +214,7 @@ header {
 
 .nav-menu a[aria-current="page"] {
     color: var(--black);
-    font-weight: 500; /* Medium */
+    font-weight: 700; /* Bold – clear active state */
     text-decoration: none;
 }
 
@@ -341,7 +347,7 @@ main{
     margin-inline: auto;
 }
 
-/* Top line */
+/* Top line – lighter than blue cards so it reads behind "nyc bucket list" in space */
 .hero-title-sans{
     display: block;
     margin-bottom: 0; /* No extra space */
@@ -353,7 +359,7 @@ main{
                                          * through https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
                                          * used as a reference, but still need to be further understood */
     letter-spacing: var(--ls-tight);
-    color: var(--blue);
+    color: var(--blue-recede);
 }
 
 /* Second line */
@@ -416,7 +422,8 @@ main{
 .note-blue {
     background: var(--lightblue);
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 0;
+    border: 1px solid rgba(74, 123, 167, 0.35); /* Slightly darker blue outline – matches grey card treatment */
     box-shadow: 0 4px 12px rgba(58, 8, 8, 0.05); /* Using --black color with opacity */
     transform: rotate(7deg) translatex(-12px);
     z-index: 2; /* sit on top */
@@ -424,7 +431,8 @@ main{
 .note-grey {
     background: var(--lightgrey);
     padding: 32px;
-    border-radius: 16px;
+    border-radius: 0;
+    border: 1px solid var(--coolgrey); /* Outline so grey card reads on light bg */
     box-shadow: 0 4px 12px rgba(58, 8, 8, 0.05); /* Using --black color with opacity */
     transform: rotate(-6deg) translateY(12px);
     z-index: 1;
@@ -433,7 +441,7 @@ main{
 .note-inner{
     background: var(--white);
     padding: 24px 32px;
-    border-radius: 8px;
+    border-radius: 0;
     max-width: 380px; /* Updated this value because needs to be smaller than outer card */
     min-width: 0;
     box-sizing: border-box;
@@ -488,22 +496,20 @@ main{
     width: 100%;
     table-layout: fixed; /* Fixed column widths */
     border-collapse: separate; /* Rounded corners + spacing */
-    border-spacing: 0 var(--row-gap); /* Space BETWEEN rows (not inside) */
+    border-spacing: 0; /* No gap between rows */
     color: var(--black);
     position: relative;
 }
 
 .work-table thead th{
-    background: rgba(253, 253, 253, 0.7); /* var(--white) with 70% opacity */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
     color: var(--black);
+    font-weight: 500; /* Same as nav – table header is secondary to nav */
     text-transform: uppercase;
     text-align: left;
     padding: 12px 16px;
 }
-.work-table thead th:first-child{ border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
-.work-table thead th:last-child { border-top-right-radius: 16px; border-bottom-right-radius: 16px; }
+.work-table thead th:first-child{ border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.work-table thead th:last-child { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 
 .work-table tbody td,
 .work-table tbody th[scope="row"]{
@@ -516,8 +522,8 @@ main{
 
 /* Using the > child selector for more targeted styling.
  * Ref: https://www.geeksforgeeks.org/css/what-is-greater-than-sign-selector-in-css/# and peer guidance */
-.work-table tbody tr > *:first-child{ border-top-left-radius: 16px; border-bottom-left-radius: 16px; } /* Round the left ends of each row */
-.work-table tbody tr > *:last-child { border-top-right-radius: 16px; border-bottom-right-radius: 16px; } /* Round the right ends of each row */
+.work-table tbody tr > *:first-child{ border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.work-table tbody tr > *:last-child { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 
 /* Style rows based on their data-status value ("loved" and "to-try").
  * Plan to enable future JS filtering by status, hence why data attributes were needed. */
@@ -529,6 +535,8 @@ main{
 
 .work-table tbody tr[data-status="loved"]  > *{ background: var(--lightblue); }
 .work-table tbody tr[data-status="to-try"] > *{ background: var(--lightgrey); }
+/* Grey rows: subtle left border so they read on light bg (matches grey card treatment) */
+.work-table tbody tr[data-status="to-try"] > *:first-child { border-left: 3px solid var(--coolgrey); }
 
 /* This is the header, that applies to the entire row it's in.
  * In this case, the header is the name of the location. */
@@ -547,6 +555,7 @@ main{
     background: var(--white);
     color: var(--black);
     border-radius: 8px;
+    border: 1px solid var(--coolgrey); /* Outline so pill reads against row background */
     white-space: nowrap;
     text-transform: lowercase;
 }
@@ -582,14 +591,13 @@ main{
 /* Match card shadows */
 /* Removed hover effects - no drop shadow or opacity changes */
 
-/* Sticky table header */
+/* Sticky table header: sits just under nav; opaque so rows are clipped (hidden) behind it, not visible through */
 .work-table thead th {
     position: sticky;
-    top: 80px;
-    background: rgba(253, 253, 253, 0.7); /* var(--white) with 70% opacity */
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 3;
+    top: var(--header-height);
+    background: var(--bg); /* Match page so bar blends; solid so rows hide behind it */
+    z-index: 10; /* Below nav (1000) but above table body */
+    box-shadow: 0 1px 0 rgba(58, 8, 8, 0.06); /* Thin line above row when stuck */
 }
 
 /* Hide some columns on smaller screens */
@@ -606,12 +614,12 @@ main{
 
     /* Adjust row radius */
     .work-table thead th:first-child {
-        border-top-left-radius: 16px;
-        border-bottom-left-radius: 16px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
     .work-table thead th:last-child {
-        border-top-right-radius: 16px;
-        border-bottom-right-radius: 16px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 
@@ -675,9 +683,9 @@ main{
     }
     
     .dropdown-active-filter {
-        width: 130px; /* Fixed width for mobile (proportionally smaller) */
-        padding: 3px 10px; /* Reduced by 1px top/bottom to account for border */
-        font-size: 14px; /* Slightly smaller text */
+        min-width: 100px;
+        padding: 6px 12px;
+        font-size: 14px;
     }
 }
 
@@ -706,10 +714,10 @@ main{
     }
     
     .dropdown-active-filter {
-        width: 120px; /* Fixed width for extra small screens (proportionally smaller) */
-        font-size: 13px; /* Match button font size */
-        padding: 2px 9px; /* Reduced by 1px top/bottom to account for border (3px - 1px = 2px) */
-        line-height: 1.5; /* Maintain same line-height ratio */
+        min-width: 90px;
+        font-size: 13px;
+        padding: 6px 10px;
+        line-height: 1.5;
     }
     
     .dropdown-option {
@@ -742,150 +750,125 @@ main{
 
 .page-title {
     text-align: center;
-    margin: 24px 0 32px; padding-top: 80px;
+    margin: 24px 0 32px;
+    padding-top: var(--header-height);
 }
 
-/* FILTER BUTTONS */
+/* FILTER BUTTONS – Cosmos-style: invisible container, pill dropdowns, text = selected */
 .filters-wrapper {
-    margin: 0 0 32px 0; /* No horizontal margin - align with parent padding */
+    margin: 0 0 32px 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Space between status (left) and borough (right) */
-    align-items: flex-start; /* Top-align filter sections */
-    flex-wrap: nowrap;
-    gap: 16px; /* Minimum gap between filter sections */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-sizing: border-box;
 }
 
 .filter-section {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    align-items: center;
     flex-shrink: 0;
-    justify-content: flex-start; /* Align content to start */
 }
 
 .filter-section .filter-container {
-    display: flex;
-    align-items: center; /* Center-align the buttons within their container */
+    display: none; /* Status is now a dropdown pill */
 }
 
-.filter-section .custom-dropdown {
-    display: flex;
-    align-items: flex-start; /* Left-align the label and box */
-}
-
-.filter-section.status-section {
-    flex-shrink: 0;
-}
-
-.filter-section.location-section {
-    flex-shrink: 0;
-}
-
-/* Custom Borough dropdown styling */
+/* Pill dropdown (status + borough): single clickable pill, text shows selection */
 .custom-dropdown {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: inline-flex;
 }
 
-.custom-dropdown.active .dropdown-active-filter {
-    border-color: var(--black);
-}
-
+/* Hide the label trigger; pill is the only control */
 .dropdown-trigger {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-family: var(--font-sans);
+    display: none;
 }
 
-/* Active filter display box */
+/* Pill button: shows selected value + chevron (Cosmos-style). Text centred; arrow fixed right. */
 .dropdown-active-filter {
-    background: var(--white);
-    border: 1px solid var(--darkgrey);
-    border-radius: 4px;
-    padding: 3px 10px; /* Reduced by 1px top/bottom to account for border (4px - 1px border = 3px) */
+    position: relative;
+    background: var(--lightgrey);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 8px 28px 8px 12px; /* snug padding for text + arrow */
     font-family: var(--font-sans);
     font-weight: 300;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--black);
     text-transform: lowercase;
-    text-align: left;
-    width: 140px; /* Fixed width to accommodate longest option (greenpoint) */
     box-sizing: border-box;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    line-height: 1.5; /* Match filter-btn line height */
+    justify-content: center;
+    line-height: 1.4;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Fixed width so pill doesn’t resize when selection changes (based on longest option) */
+.filter-section.status-section .dropdown-active-filter {
+    width: 10.25em; /* fits "all statuses" */
+}
+
+.filter-section.location-section .dropdown-active-filter {
+    width: 11.25em; /* fits "all locations" */
+}
+
+.dropdown-active-filter:hover {
+    background: var(--coolgrey);
 }
 
 .dropdown-active-filter .filter-text {
-    flex: 1;
+    text-align: center;
 }
 
 .dropdown-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 16px;
     height: 16px;
     color: var(--darkgrey);
     transition: transform 0.2s ease, color 0.2s ease;
-    flex-shrink: 0;
 }
 
 .custom-dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
-    color: var(--black);
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .custom-dropdown.active .dropdown-active-filter {
-    border-color: var(--black);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.custom-dropdown.active .dropdown-active-filter .dropdown-arrow {
+    transform: translateY(-50%) rotate(180deg);
+    color: var(--black);
 }
 
 .dropdown-label {
-    color: var(--darkgrey);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: var(--ls-tight);
-    text-transform: uppercase;
-}
-
-.dropdown-arrow {
-    color: var(--darkgrey);
-    font-size: 16px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-}
-
-.custom-dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
+    display: none;
 }
 
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0; /* Left-align with trigger box */
-    margin-top: 8px;
+    left: 0;
+    margin-top: 6px;
     display: none;
     flex-direction: column;
     gap: 0;
-    background: rgba(253, 253, 253, 0.7); /* var(--white) with 70% opacity */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 4px;
-    padding: 4px 0;
-    width: 100%; /* Match the width of the container (aligns with dropdown-active-filter) */
+    background: var(--white);
+    border-radius: 10px;
+    padding: 6px 0;
+    min-width: 100%;
     box-sizing: border-box;
-    min-width: 120px; /* Match dropdown-active-filter min-width */
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px rgba(58, 8, 8, 0.1);
+    border: 1px solid rgba(58, 8, 8, 0.08);
 }
 
 .custom-dropdown.active .dropdown-menu {
@@ -895,52 +878,49 @@ main{
 .dropdown-option {
     background: transparent;
     border: none;
-    padding: 4px 12px;
+    padding: 8px 14px;
     text-align: left;
     font-family: var(--font-sans);
     font-weight: 300;
-    font-size: 16px;
-    color: var(--darkgrey); /* Dark grey - inactive state */
+    font-size: 15px;
+    color: var(--darkgrey);
     text-transform: lowercase;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease;
-    border-radius: 4px; /* Slightly rounded rectangle */
-    margin: 2px 8px;
+    border-radius: 6px;
+    margin: 0 6px;
     box-sizing: border-box;
 }
 
 .dropdown-option:hover,
 .dropdown-option:focus {
-    background: transparent; /* No background on hover */
-    color: var(--black); /* Black text on hover */
+    background: var(--coolgrey);
+    color: var(--black);
     outline: none;
 }
 
 .dropdown-option.active {
-    background: var(--lightgrey);
     color: var(--black);
-    font-weight: 300; /* Keep light weight */
+    font-weight: 400;
 }
 
-/* Hide native select */
-.location-select.hidden {
+/* Hide native selects */
+.location-select.hidden,
+.status-select.hidden {
     display: none;
 }
 
-/* Hide borough buttons, show dropdown */
 .filter-section.location-section .filter-container {
     display: none;
 }
 
+/* Labels hidden – pill text is the selection */
 .filter-label {
-    color: var(--darkgrey);
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 16px; /* Base size for labels */
-    line-height: 1.5;
-    font-weight: 500;
-    letter-spacing: var(--ls-tight);
+    display: none;
 }
+
+/* Borough pill: ensure long options fit */
+/* Location pill width set above (12.5em) */
 
 .filter-container {
     display: flex;
@@ -1050,7 +1030,7 @@ main{
 
 /* A single card itself */
 .card__surface{
-    border-radius: 16px;
+    border-radius: 0;
     padding: 32px;
 }
 
@@ -1062,8 +1042,14 @@ main{
  * and
  * https://dev.to/dev-harbiola/custom-data-attributes-in-html-a-guide-to-data--373 */
 
-.card[data-status="to-try"] .card__surface { background: var(--lightgrey); }
-.card[data-status="loved"] .card__surface { background: var(--lightblue); }
+.card[data-status="to-try"] .card__surface {
+    background: var(--lightgrey);
+    border: 1px solid var(--coolgrey); /* Outline so grey card reads on light bg */
+}
+.card[data-status="loved"] .card__surface {
+    background: var(--lightblue);
+    border: 1px solid rgba(74, 123, 167, 0.35); /* Slightly darker blue outline – matches grey card treatment */
+}
 .card[data-status="loved"] .card__media img {
     filter: grayscale(100%);
     transition: filter 0.2s ease;
@@ -1074,26 +1060,33 @@ main{
 }
 
 /* Tags + title
- * In the future, should also consider making these tags into data attributes -
- * so that you can also filter with tags for different boroughs. That way
- * I can search through which neighbourhoods I'm nearby,
- * or maybe a friend can look through it and see which borough they want to
- * visit.*/
+ * Typographic hierarchy: title (heaviest) → body → tags (lightest).
+ * Tags and body are de-emphasized via size and color so titles read first.
+ * Ref: type scale ratios ~1.2, secondary text 75–85% of body size. */
 .card__tags { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .card__tags .tag {
     display: inline-block;
-    padding: 4px 12px;
+    padding: 4px 10px;
     border: none;
     border-radius: 4px;
     background: rgba(253, 253, 253, 0.5); /* var(--white) with 50% opacity */
-    color: var(--black);
-    font-size: 12px;
+    color: var(--darkgrey); /* Lighter color for metadata/secondary hierarchy */
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 10px;
     line-height: 1.5;
-    /* Remove default text styling if needed */
+    letter-spacing: var(--ls-wide);
     text-decoration: none;
 }
-.card__title { margin: 32px 0 16px; }
+.card__title {
+    margin: 32px 0 16px;
+    font-weight: 700; /* Bold – heaviest in card hierarchy */
+    font-size: 18px;
+}
+.card__body {
+    font-size: 11px;
+}
 
 /* Media: image fills card width, height hugs content */
 .card__media { margin: 0; }
@@ -1101,11 +1094,28 @@ main{
     display: block;
     width: 100%; /* Fill width */
     height: auto; /* Hug height */
-    border-radius: 8px;
+    border-radius: 0;
 }
 
-/* Text that goes under media, to give credit to original author */
-.card__credit { color: var(--darkgrey); margin: 8px 0; hyphens: auto;}
+/* Text that goes under media, to give credit to original author — same hierarchy as tags */
+.card__credit {
+    margin: 8px 0;
+    hyphens: auto;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 1.5;
+    letter-spacing: var(--ls-wide);
+    color: var(--darkgrey);
+}
+
+/* Card body: full paragraph, slightly smaller text */
+.card__body {
+    font-size: 10px;
+}
+.card__body p {
+    margin: 0;
+}
 
 /* Hover/active interactions that apply only to the card surface */
 /* Removed hover effects - no drop shadow or opacity changes */

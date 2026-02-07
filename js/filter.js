@@ -57,10 +57,8 @@ function initializeFilters() {
         }
     });
     
-    // Get filter buttons and custom dropdowns
-    const statusButtons = document.querySelectorAll('.filter-btn-status');
+    // Get custom dropdowns (status + location pill dropdowns)
     const customDropdowns = document.querySelectorAll('.custom-dropdown');
-    const locationSelects = document.querySelectorAll('.location-select');
     
     // If no items to filter, exit early
     if (allCards.length === 0 && allTableRows.length === 0) {
@@ -72,13 +70,13 @@ function initializeFilters() {
     const cardsContainer = document.querySelector('.cards');
     const tableContainer = document.querySelector('.work-table');
     
-    // Custom dropdown functionality
+    // Custom dropdown functionality (status + location pill dropdowns)
     customDropdowns.forEach(dropdown => {
         const trigger = dropdown.querySelector('.dropdown-trigger');
         const activeFilterDisplay = dropdown.querySelector('.dropdown-active-filter');
         const menu = dropdown.querySelector('.dropdown-menu');
         const options = dropdown.querySelectorAll('.dropdown-option');
-        const hiddenSelect = dropdown.querySelector('.location-select');
+        const hiddenSelect = dropdown.querySelector('.location-select, .status-select');
         
         // Toggle dropdown on trigger click or active filter box click
         const toggleDropdown = function(e) {
@@ -145,17 +143,13 @@ function initializeFilters() {
         const cardsToFilter = document.querySelectorAll('.card');
         const rowsToFilter = document.querySelectorAll('tr[data-status]');
         
-        // Re-query for filter buttons (they should already exist, but just to be safe)
-        const statusButtonsQuery = document.querySelectorAll('.filter-btn-status');
-        const locationSelectsQuery = document.querySelectorAll('.location-select');
+        // Get active status from pill dropdown (status-select)
+        const statusSelect = document.querySelector('.status-select');
+        const activeStatusFilter = statusSelect ? statusSelect.value : 'all';
         
-        // Get active status filter (mutually exclusive)
-        const activeStatusButton = Array.from(statusButtonsQuery).find(button => button.classList.contains('active'));
-        const activeStatusFilter = activeStatusButton ? activeStatusButton.dataset.filter : 'all';
-        
-        // Get active location filter from hidden select (mutually exclusive - single select)
-        const activeLocationSelect = locationSelectsQuery.length > 0 ? locationSelectsQuery[0] : null;
-        const activeLocationFilter = activeLocationSelect ? activeLocationSelect.value : 'all';
+        // Get active location from pill dropdown (location-select)
+        const locationSelect = document.querySelector('.location-select');
+        const activeLocationFilter = locationSelect ? locationSelect.value : 'all';
         
         // If "all" is selected in locations, treat as no filter
         const hasLocationFilter = activeLocationFilter && activeLocationFilter !== 'all';
@@ -253,34 +247,7 @@ function initializeFilters() {
         }
     }
     
-    // Add click handlers to status filter buttons (mutually exclusive)
-    statusButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // If this button is already active and it's not "all", deactivate it
-            if (this.classList.contains('active') && this.dataset.filter !== 'all') {
-                // Find and activate "all" button instead
-                const allButton = Array.from(statusButtons).find(btn => btn.dataset.filter === 'all');
-                if (allButton) {
-                    statusButtons.forEach(btn => btn.classList.remove('active'));
-                    allButton.classList.add('active');
-                }
-            } else {
-                // Remove active from all status buttons
-                statusButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active to clicked button
-                this.classList.add('active');
-            }
-            
-            // Filter items
-            filterItems();
-        });
-    });
-    
-    // Initialize: activate "all" buttons by default for status
-    const statusAllButton = Array.from(statusButtons).find(btn => btn.dataset.filter === 'all');
-    if (statusAllButton) statusAllButton.classList.add('active');
-    
-    // Initialize: set "all" as default for custom dropdowns and hidden selects
+    // Initialize: set "all" as default for all custom dropdowns (status + location)
     customDropdowns.forEach(dropdown => {
         const hiddenSelect = dropdown.querySelector('.location-select');
         const allOption = dropdown.querySelector('.dropdown-option[data-value="all"]');
@@ -317,31 +284,11 @@ document.addEventListener('DOMContentLoaded', initializeFilters);
 // Also initialize filters when entries are rendered dynamically
 document.addEventListener('entriesRendered', function() {
     initializeFilters();
-    // Run filter after a brief delay to ensure everything is ready
-    setTimeout(() => {
-        // Re-query for status buttons and trigger filter
-        const statusButtons = document.querySelectorAll('.filter-btn-status');
-        const locationSelects = document.querySelectorAll('.location-select');
-        const activeStatusButton = Array.from(statusButtons).find(button => button.classList.contains('active'));
-        
-        if (activeStatusButton) {
-            activeStatusButton.click();
-        } else if (statusButtons.length > 0) {
-            const allButton = Array.from(statusButtons).find(btn => btn.dataset.filter === 'all');
-            if (allButton) {
-                allButton.classList.add('active');
-                // Get filterItems from scope - we need to call it directly
-                const cardsToFilter = document.querySelectorAll('.card');
-                const rowsToFilter = document.querySelectorAll('tr[data-status]');
-                if (cardsToFilter.length > 0 || rowsToFilter.length > 0) {
-                    // Trigger filter by dispatching a custom event or calling filterItems
-                    // For now, just call initializeFilters which will set up everything
-                    initializeFilters();
-                    // Then manually trigger the filter
-                    const activeBtn = Array.from(statusButtons).find(btn => btn.classList.contains('active'));
-                    if (activeBtn) activeBtn.click();
-                }
-            }
+    setTimeout(function() {
+        const cardsToFilter = document.querySelectorAll('.card');
+        const rowsToFilter = document.querySelectorAll('tr[data-status]');
+        if ((cardsToFilter.length > 0 || rowsToFilter.length > 0) && typeof window.filterItems === 'function') {
+            window.filterItems();
         }
     }, 100);
 });

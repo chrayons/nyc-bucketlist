@@ -58,24 +58,24 @@
     {
       "title": "Cooper Hewitt",
       "url": "https://www.cooperhewitt.org/",
-      "status": "to-try",
-      "tags": ["manhattan", "to-try"],
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
       "image": "img/cooperhewitt.jpg",
       "imageAlt": "Image of the Cooper Hewitt, with grand staircases and interactive display tables.",
       "imageCredit": "Max Touhey",
       "imageCreditUrl": "https://ny.curbed.com/2014/12/12/10012386/tour-the-cooper-hewitt-now-open-after-a-91m-overhaul",
-      "description": "Free entry if you present your Pratt student ID! The only museum in the US dedicated to historical and contemporary design. Unfortunately, it's closed at the time of me writing. I think this would be a great place to learn what good design (as opposed to art) looks like, and how I might learn from what I see!"
+      "description": "Loved the listening room I went to, as well as the exhibition by Christopher Payne. The images were gorgeous and well-curated. The building looks enormous but only two of three floors were open. I want to revisit when it's more full."
     },
     {
       "title": "Guggenheim",
       "url": "https://www.guggenheim.org/",
-      "status": "to-try",
-      "tags": ["manhattan", "to-try"],
+      "status": "loved",
+      "tags": ["manhattan", "loved"],
       "image": "img/guggenheim.webp",
       "imageAlt": "Image of the Guggenheim museum, a curved building with a view of all floors.",
       "imageCredit": "Julia Ohmann",
       "imageCreditUrl": "https://maps.google.com/maps/contrib/102035186089423479823",
-      "description": "Free entry if you present your Pratt student ID! A UNESCO World Heritage site where the building itself feels like part of the exhibition. The contemporary and abstract pieces are far from my own style, which makes exploring how each artist describes their process especially fascinating!"
+      "description": "Was a beautiful place to explore! Exhibitions weren't necesarily my style but I liked wandering through the space. A must-visit. I also got free entry with my Pratt student ID."
     },
     {
       "title": "Museum of Arts and Design",

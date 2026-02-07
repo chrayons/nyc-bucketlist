@@ -45,17 +45,6 @@
       "type": "School (Pratt students only)"
     },
     {
-      "name": "canteenM",
-      "url": "https://canteenm.restaurants-world.com/",
-      "status": "loved",
-      "borough": "Manhattan",
-      "location": "189 Bowery #2F, New York, NY 10002",
-      "locationUrl": "https://maps.app.goo.gl/uNW5WtpTo6cpsNt39",
-      "hours": "Mon-Sun 24h",
-      "wifi": "Yes",
-      "type": "Bar inside CitizenM hotel"
-    },
-    {
       "name": "Public Hotel",
       "url": "https://publichotels.com",
       "status": "loved",
